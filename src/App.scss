@@ -1,0 +1,1235 @@
+@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Fjalla+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+select,
+input,
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+//Vars
+$small-desktop: 1200px;
+$xs-desktop: 960px;
+$tablet: 767px;
+$mobile: 575px;
+$main-red: #f1324c;
+$logo: "Fugaz One", cursive;
+
+//Media queries
+@mixin small-desktop {
+  @media (max-width: #{$small-desktop}) {
+    @content;
+  }
+}
+
+@mixin xs-desktop {
+  @media (max-width: #{$xs-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+//Mixins
+@mixin btnReset {
+  cursor: pointer;
+  background-color: rgb(13, 156, 212);
+  border: none;
+  outline: none;
+  color: #f8f8f8;
+}
+
+@mixin linksReset {
+  list-style: none;
+  text-decoration: none;
+  color: rgb(59, 59, 59);
+}
+
+@mixin columnCenter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin btn {
+  cursor: pointer;
+  background-color: #171818;
+  border: none;
+  border: solid 1px #171818;
+  width: 100%;
+  border-radius: 6rem;
+  font-size: 1.2rem;
+  color: #f05065;
+  padding: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 4px 5px 15px  #e0e6e6da;
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------Header--------*/
+a {
+  text-decoration: none;
+}
+
+.scrolled {
+  position: fixed;
+  background-color: rgb(236, 241, 243);
+  z-index: 100;
+  box-shadow: 0px 5px 15px rgba(20, 20, 20, 0.178);
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  opacity: 1;
+  left: 0;
+  z-index: 1;
+  height: 14vh;
+  height: 88px;
+  transition: 0.3s ease;
+  @include xs-desktop {
+    top: 0;
+  }
+
+  .nav-menu {
+    @include xs-desktop {
+      @include flexColumn();
+      width: 50%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+    }
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  .nav-menu.active {
+    @include xs-desktop {
+      background: $main-red;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+    h1 {
+      border-bottom: solid 1px #f3445b;
+      color: #c7d3d3;
+      margin-left: 0;
+      padding: 15px 50px;
+    }
+  }
+
+  .navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.7rem;
+    h1 {
+      margin-left: 3rem;
+      font-family: "Fugaz One", cursive;
+      text-transform: uppercase;
+      color: rgb(41, 40, 40);
+      font-size: 2.3rem;
+      margin-top: 10px;
+      @include mobile {
+        margin-left: 2rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    .hidden-link {
+      display: none;
+      @include xs-desktop {
+        display: flex;
+      }
+    }
+
+    .nav-item {
+      @include xs-desktop {
+        display: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      @include xs-desktop {
+        justify-content: center;
+      }
+
+      li {
+        margin-right: 3rem;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: rgb(83, 82, 82);
+        width: 100%;
+        @include xs-desktop {
+          color: rgb(228, 217, 217);
+          font-size: 1.3rem;
+          padding: 15px 50px;
+          border-bottom: solid 1px #f3445b;
+          letter-spacing: 2px;
+          transition: 0.2s ease;
+          &:hover {
+            background-color: #f05065;
+          }
+        }
+      }
+    }
+
+    .cart {
+      position: relative;
+      .cart-qtd {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: -10px;
+        left: 22px;
+        background-color: $main-red;
+        color: rgb(248, 242, 242);
+        padding: 3px 7px 3px 7px;
+        font-size: 12px;
+        border-radius: 5rem;
+        @include xs-desktop {
+          top: 3px;
+          left: 70px;
+          background-color: #1c1d1d;
+        }
+      }
+    }
+  }
+
+  .menu-icon {
+    display: none;
+    z-index: 1000;
+  }
+
+  .menu-icon {
+    @include xs-desktop {
+      display: block;
+      margin-right: 3rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @include mobile {
+      margin-right: 2rem;
+    }
+  }
+}
+
+/*--------Dropdown---------*/
+.dropdown-menu {
+  display: inherit !important;
+  width: 250px;
+  position: absolute;
+  top: 8vh;
+  list-style: none;
+  text-align: start;
+  @include xs-desktop {
+    background-color: red;
+  }
+}
+
+.shop-link {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  color: rgb(83, 82, 82);
+  @include xs-desktop {
+    display: none;
+  }
+}
+
+.dropdown-menu li {
+  background: $main-red;
+  cursor: pointer;
+  @include xs-desktop {
+    background-color: none;
+  }
+}
+
+.dropdown-menu.clicked {
+  display: none;
+}
+
+.dropdown-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: rgb(245, 236, 236);
+  padding: 16px;
+}
+
+.dropdown-link:hover {
+  background: #f05065;
+  @include xs-desktop {
+    background-color: gray;
+  }
+}
+.loader {
+  position: absolute;
+  background-color: rgb(241, 232, 232);
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: $main-red;
+    color: #161515;
+    font-family: "Fugaz One", cursive;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+// .home{
+//   position: relative;
+//   // z-index: -100;
+// }
+
+/*-------Landing page--------*/
+.landing-page {
+  position: relative;
+  height: 100vh;
+  // z-index: -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  @include mobile {
+  }
+  .bg-left {
+    background: #ffffff;
+    opacity: 0;
+    height: 0vh;
+    display: flex;
+    align-items: center;
+    @include tablet {
+      align-items: flex-end;
+    }
+
+    .landing-txt {
+      @include flexColumn();
+      align-items: flex-start;
+      margin-left: 3rem;
+      opacity: 1;
+      z-index: 1;
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: rgba(22, 22, 22, 0.76);
+      @include tablet {
+        margin-bottom: 2rem;
+      }
+
+      @include mobile {
+        margin-left: 2rem;
+      }
+
+      h2 {
+        text-transform: uppercase;
+        font-family: "Fjalla One", sans-serif;
+        font-size: 4rem;
+        letter-spacing: 5px;
+        font-weight: bold;
+        align-self: flex-start;
+        @include small-desktop {
+          font-size: 2.5rem;
+          align-self: flex-start;
+        }
+        @include xs-desktop {
+          font-size: 2rem;
+        }
+        @include mobile {
+          font-size: 1rem;
+          letter-spacing: 4px;
+        }
+      }
+
+      span {
+        color: rgba(22, 22, 22, 0.76);
+      }
+
+      button {
+        cursor: pointer;
+        background: #f3eeee;
+        background-color: #171818;
+        border: none;
+        border: solid 1px #171818;
+        width: 290px;
+        border-radius: 6rem;
+        font-size: 1.2rem;
+        color: #f05065;
+        padding: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        box-shadow: 4px 5px 15px rgba(12, 12, 12, 0.63);
+        @include small-desktop {
+          font-size: 1rem;
+          align-self: flex-start;
+          width: 200px;
+        }
+
+        @include xs-desktop {
+          width: 170px;
+        }
+
+        @include mobile {
+          font-size: 0.6rem;
+          padding: 8px;
+          width: 100px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .bg-right {
+    position: relative;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    @include tablet {
+      align-items: flex-end;
+    }
+    .socials {
+      margin-right: 3rem;
+      z-index: 1;
+
+      @include mobile {
+        margin-right: 2rem;
+      }
+
+      ul {
+        @include tablet {
+          display: flex;
+          margin-bottom: 2rem;
+        }
+        list-style: none;
+        li {
+          cursor: pointer;
+          margin-top: 1rem;
+          color: #242222;
+          @include tablet {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .landing-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    img {
+      max-height: 100%;
+      opacity: 1;
+      max-width: 57%;
+      @include tablet {
+        max-width: 80%;
+      }
+      @include mobile {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .more-btn {
+    font-size: 2.5rem;
+  }
+}
+
+/*-------Filters--------*/
+.filters {
+  display: flex;
+  justify-content: space-between;
+  width: 1150px;
+  margin: 0 auto;
+  border-top: solid 1px rgb(219, 209, 209);
+  padding: 1rem 0 0 0;
+  margin-top: 1rem;
+  @include small-desktop {
+    width: 85%;
+  }
+  @include tablet {
+    margin-top: 1rem;
+  }
+  align-items: center;
+  input {
+    width: 550px;
+    padding: 10px;
+    outline: none;
+    border: solid 1px rgb(223, 213, 213);
+    background-color: #f7f1f1;
+    border-radius: 3px;
+    transition: 0.1s ease-in;
+    &:focus {
+      border: 1px solid #f86376;
+    }
+    @include xs-desktop {
+      width: 50%;
+    }
+    @include mobile {
+      width: 50%;
+    }
+  }
+  .marcas {
+    display: flex;
+    align-items: center;
+    p {
+      margin-right: 15px;
+      letter-spacing: 1px;
+      color: rgb(49, 46, 46);
+      @include tablet {
+        font-size: 1rem;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+    select {
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='rgb(54, 53, 53)' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 5px;
+      width: 120px;
+      padding: 10px;
+      border: solid 1px rgb(219, 209, 209);
+      border-radius: 3px;
+      outline: none;
+      &:focus {
+        border: 1px solid #f86376;
+      }
+    }
+  }
+}
+
+/*------CARDS--------*/
+.products-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  h1 {
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    color: rgb(54, 53, 53);
+    letter-spacing: 2px;
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-row-gap: 7rem;
+  grid-gap: 7rem;
+  width: 1150px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  @include small-desktop {
+    width: 85%;
+  }
+
+  img {
+    width: 320px;
+    margin-bottom: 0.5rem;
+    @include tablet {
+      width: 250px;
+    }
+  }
+  .card {
+    background: #ffffff;
+    @include flexColumn();
+    align-items: center;
+
+    div {
+      @include flexColumn();
+      align-items: center;
+      color: rgb(63, 62, 62);
+      span {
+        font-weight: bold;
+      }
+    }
+    .preco {
+      color: rgb(49, 48, 48);
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 100;
+    }
+
+    .parcela {
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-top: 10px;
+      color: rgb(63, 62, 62);
+    }
+  }
+}
+
+/*------Banners--------*/
+.banner {
+  width: 100%;
+  height: 70vh;
+  background: $main-red;
+  margin-top: 100px;
+}
+
+/*------Contact--------*/
+.contact-container {
+  margin-top: 140px;
+  height: 100vh;
+  @include flexColumn();
+  align-items: center;
+  @include mobile {
+    padding: 1rem;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    color: #151616;
+  }
+
+  span {
+    color: #524f4f;
+  }
+
+  form {
+    @include flexColumn();
+    margin-top: 1rem;
+    border: solid 1px rgb(217, 217, 223);
+    padding: 4rem;
+    @include mobile {
+      padding: 2rem;
+    }
+
+    .input,
+    .message {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      .invalid {
+        margin-top: -12px;
+        margin-bottom: 5px;
+        color: rgb(233, 61, 61);
+        letter-spacing: 1px;
+      }
+      .valid {
+        position: absolute;
+        margin-bottom: 20px;
+        right: 15px;
+        top: 13px;
+        color: rgb(49, 47, 47);
+      }
+    }
+
+    label {
+      display: block;
+    }
+    .div {
+      background-color: blue;
+      width: 100%;
+      height: 100%;
+    }
+    textarea,
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      margin-bottom: 1rem;
+      padding: 8px;
+      height: 45px;
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      border: solid 1px rgb(226, 216, 216);
+      background: transparent;
+      width: 500px;
+      transition: 0.1s ease-in;
+      &:focus {
+        border: 2px solid $main-red;
+        box-shadow: 0 0 10px #1618185b;
+        background-color: rgb(240, 232, 232);
+      }
+      @include tablet {
+        width: 400px;
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+
+    textarea {
+      font-family: inherit;
+      height: 220px;
+    }
+
+    button {
+      margin-top: 1rem;
+      @include btn();
+      align-self: flex-start;
+      width: 200px;
+      background: $main-red;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+/*----------Details-----------*/
+.details-container {
+  @include flexColumn();
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 140px;
+  border-radius: 3px;
+  .product-details {
+    background: #ffffff;
+    box-shadow: 0 0 10px #bdc0c05b;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    border: solid 1px #e7e0e0;
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .img-container {
+      padding: 2rem;
+      @include flexColumn();
+      justify-content: center;
+      .main-img {
+        width: 350px;
+        margin: 0 auto;
+        @include mobile {
+          max-width: 100%;
+        }
+      }
+      .img-options {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        img {
+          cursor: pointer;
+          width: 85px;
+          border: solid 1px #e2d9d9;
+          margin-right: 15px;
+          padding: 0.7rem;
+          @include mobile {
+            width: 60px;
+          }
+        }
+      }
+    }
+
+    .info {
+      @include flexColumn();
+      justify-content: space-between;
+      background: rgb(241, 238, 238);
+      padding: 5rem 0 5rem 0;
+      border-left: solid 1px #ece3e3;
+      height: 600px;
+      align-items: center;
+      .carrinho-btn {
+        @include flexColumn();
+        align-items: center;
+        .detalhe {
+          margin-bottom: 0.5rem;
+          text-align: center;
+          color: rgb(77, 75, 75);
+          font-size: 0.9rem;
+        }
+      }
+
+      @include mobile {
+        padding: 5rem 1rem 5rem 1rem;
+      }
+
+      h1 {
+        font-family: "Fjalla One", sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        color: #242525;
+        border-bottom: dashed 1px #8b8f8f;
+        @include mobile {
+          font-size: 1.4rem;
+        }
+      }
+
+      .preco {
+        @include flexColumn();
+        align-items: center;
+        border-bottom: dashed 1px #8b8f8f;
+        span {
+          font-family: "Fjalla One", sans-serif;
+          font-size: 2.2rem;
+          color: $main-red;
+          letter-spacing: 1px;
+          font-weight: bold;
+          margin-top: 5px;
+          @include mobile {
+            font-size: 1.7rem;
+          }
+        }
+
+        p {
+          margin-top: 5px;
+          color: rgb(77, 75, 75);
+          text-align: center;
+        }
+      }
+
+      button {
+        cursor: pointer;
+        @include btn();
+        font-size: 1rem;
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          font-size: 1.5rem;
+          margin-left: 5px;
+          @include mobile{
+            font-size: 1rem;
+          }
+        }
+        @include tablet {
+          width: 100%;
+          padding: 16px;
+        }
+        @include mobile {
+          width: 100%;
+          padding: 12px;
+          font-size: 0.6rem;
+          text-align: center;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .hardware {
+    display: flex;
+    margin-top: 5rem;
+    flex-direction: column;
+    border-collapse: collapse;
+    color: rgb(100, 100, 100);
+    @include mobile {
+      font-size: 0.8rem;
+    }
+    td {
+      padding: 8px 25px 8px 6px;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 5%;
+    }
+  }
+
+  .hardware tr:nth-child(odd) {
+    background: #f1ecec;
+  }
+  .hardware tr:nth-child(even) {
+    background: #f5f2f2;
+  }
+
+  h3 {
+    display: flex;
+    padding: 6px;
+    text-transform: uppercase;
+    font-family: "Fjalla One", sans-serif;
+    letter-spacing: 2px;
+    color: #353333;
+    @include mobile {
+      padding: 2px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+/*--------Cart------------*/
+.empty-cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  @include mobile {
+    padding: 3rem;
+  }
+  h1 {
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgb(26, 24, 24);
+    margin-bottom: 10px;
+    @include mobile {
+      font-size: 1.3rem;
+    }
+  }
+  .message {
+    background: rgb(221, 213, 213);
+    color: rgb(43, 41, 41);
+    padding: 6rem;
+    border-radius: 2rem;
+    @include mobile {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+    p {
+      color: rgb(26, 24, 24);
+      @include mobile {
+        font-size: 0.8rem;
+      }
+    }
+    a {
+      color: rgb(17, 16, 16);
+      border-bottom: dashed 1px rgb(26, 24, 24);
+    }
+  }
+}
+
+.cart-container {
+  width: 1150px;
+  height: 100%;
+  @include flexColumn();
+  margin: 0 auto;
+  margin-top: 140px;
+  color: rgb(77, 75, 75);
+  @include small-desktop {
+    width: 85%;
+  }
+
+  .cart-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: solid 1px rgb(185, 178, 178);
+    padding: 2rem;
+    width: 100%;
+    @include tablet {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    img {
+      width: 120px;
+      @include tablet {
+        width: 220px;
+        margin-bottom: 4rem;
+        align-self: center;
+      }
+    }
+  }
+  .delete {
+    cursor: pointer;
+    font-size: 2rem;
+    @include tablet {
+      align-self: flex-end;
+    }
+  }
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    color: #242525;
+  }
+
+  .preco-cart {
+    @include tablet {
+      padding: 2rem 0 0 0;
+      width: 100%;
+      margin-top: 25px;
+      border-top: solid 1px rgb(214, 204, 204);
+    }
+  }
+
+  .prod-cart {
+    @include tablet {
+      padding: 2rem 0 0 0;
+      width: 100%;
+      border-top: solid 1px rgb(214, 204, 204);
+    }
+  }
+
+  .quantity {
+    @include tablet {
+      padding: 2rem 0 0 0;
+      border-top: solid 1px rgb(214, 204, 204);
+      margin-top: 25px;
+      margin-bottom: 25px;
+      width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+      background-color: $main-red;
+      border: none;
+      color: white;
+      padding: 6px;
+      &:focus {
+        outline: 0;
+      }
+    }
+    .count {
+      display: flex;
+      align-items: center;
+      span {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .total-price {
+    align-self: flex-end;
+    margin-top: 25px;
+    @include tablet {
+      margin-top: -25px;
+    }
+    h3 {
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      @include tablet {
+        margin-top: 100px;
+      }
+    }
+    button {
+      cursor: pointer;
+      background: $main-red;
+      border: none;
+      color: rgb(235, 224, 224);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      width: 200px;
+      padding: 1rem;
+      border-radius: 6rem;
+      box-shadow: 4px 5px 15px rgba(12, 12, 12, 0.63);
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+}
+
+/*------Footer-------*/
+footer {
+  padding: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 1px rgb(236, 230, 230);
+  background: #eee7e7;
+  margin-top: 10rem;
+  height: 100%;
+  justify-content: space-between;
+  @include mobile {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%;
+    padding: 4%;
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .info {
+    margin-top: 5%;
+    li,
+    a {
+      @include linksReset();
+      font-size: 0.9em;
+      color: #3f3e3e;
+      color: rgb(27, 26, 26);
+      &:hover {
+        color: $main-red;
+      }
+    }
+    h4 {
+      text-transform: uppercase;
+      color: rgb(20, 20, 20);
+      margin-bottom: 6px;
+    }
+  }
+  .newsletter {
+    margin-top: 5%;
+    @include columnCenter();
+    .socials i {
+      color: rgb(0, 183, 255);
+      padding: 2px;
+      ul {
+        display: flex;
+      }
+    }
+    .email {
+      @include columnCenter();
+      h5 {
+        text-transform: uppercase;
+        color: #161515;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 121%;
+        height: 27px;
+        padding: 16px;
+        outline: none;
+        border-radius: 2px;
+        background: rgb(247, 242, 242);
+        border: solid 1px rgb(223, 211, 211);
+        color: rgb(197, 185, 185);
+      }
+
+      button {
+        @include btn();
+        padding: 6px;
+        margin-top: 5px;
+        font-size: 1rem;
+        border-radius: 2px;
+        background: $main-red;
+        color: rgb(236, 222, 222);
+        border: none;
+        text-transform: capitalize;
+        width: 121%;
+        box-shadow: 4px 5px 15px #e0e6e6da;
+      }
+    }
+  }
+  .copyright {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #0f0f0f;
+    padding: 4% 0 2% 0%;
+    font-size: 0.8rem;
+  }
+}
+
+/*------------Modal---------------*/
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  width: 60%;
+  height: 250px;
+  position: absolute;
+  padding: 2rem;
+  border-radius: 2rem;
+  font-family: "Fjalla One", sans-serif;
+  text-transform: uppercase;
+  top: 50%;
+  outline: none;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transition: 5s ease-in-out;
+  transform: translate(-50%, -50%);
+  border: solid 1px rgb(230, 221, 221);
+  background: rgb(221, 213, 213);
+  color: rgb(43, 41, 41);
+  @include tablet {
+    width: 85%;
+  }
+  @include mobile {
+    padding: 1rem;
+    width: 95%;
+  }
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    letter-spacing: 2px;
+    justify-self: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: center;
+    @include tablet {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+  }
+
+  button {
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(46, 44, 44);
+    font-size: 2rem;
+    &:focus {
+      outline: none;
+    }
+    a {
+      color: rgb(46, 44, 44);
+    }
+  }
+}
