@@ -1,14 +1,6 @@
-## HZON
+## HZONE E-COMMERCE
 
-#### Example:
-
-TweetWorld 
-
-An application used to filter data form Twitter based on user preference, built with React, Redux, JavaScript, and CSS.
-
-#### Example:
-
-This project is currently in development. Users can filter tweets by username and keyword and see visual data representation. Functionality to sort by additional parameters is in progress.
+Um e-commerce de smartphones com filtros, inputs de pesquisa e gateway de pagamento, feito com React, ContextAPI, JavaScript e SCSS.
 
 ## Project Screen Shot(s)
 
@@ -18,27 +10,21 @@ This project is currently in development. Users can filter tweets by username an
 
 [ PRETEND OTHER SCREEN SHOT IS HERE ]
 
-## Installation and Setup Instructions
+## Instalação e configuração.
 
-#### Example:  
+Faça um clone desse repositório e tenha instalado `npm` e `node` na sua máquina.
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
-
-Installation:
+Instalação:
 
 `npm install`  
 
-To Run Test Suite:  
-
-`npm test`  
-
-To Start Server:
+Para iniciar o servidor:
 
 `npm start`  
 
-To Visit App:
+Para visitar o site:
 
-`localhost:3000/ideas`  
+`localhost:3000/`  
 
 ## Reflection
 
