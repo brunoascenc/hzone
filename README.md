@@ -1,6 +1,6 @@
 ## Hzone
 
-Um e-commerce de smartphones com filtros, inputs de pesquisa e gateway de pagamento, feito com React, ContextAPI e SCSS.
+Um e-commerce de smartphones com filtros, inputs de pesquisa e shopping cart, feito com React, ContextAPI e SCSS.
 
 ## Screen Shot's
 
