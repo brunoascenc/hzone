@@ -1,13 +1,10 @@
-## Project Name & Pitch
+## HZON
 
 #### Example:
 
 TweetWorld 
 
 An application used to filter data form Twitter based on user preference, built with React, Redux, JavaScript, and CSS.
-
-## Project Status
-(only necessary if incomplete)
 
 #### Example:
 
