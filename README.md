@@ -1,8 +1,8 @@
-## HZONE E-COMMERCE
+## Hzone
 
-Um e-commerce de smartphones com filtros, inputs de pesquisa e gateway de pagamento, feito com React, ContextAPI, JavaScript e SCSS.
+Um e-commerce de smartphones com filtros, inputs de pesquisa e gateway de pagamento, feito com React, ContextAPI e SCSS.
 
-## Project Screen Shot(s)
+## Screen Shot's
 
 #### Example:   
 
@@ -26,21 +26,13 @@ Para visitar o site:
 
 `localhost:3000/`  
 
-## Reflection
+## Reflexão
 
-  - What was the context for this project? (ie: was this a side project? was this for Turing? was this for an experiment?)
-  - What did you set out to build?
-  - Why was this project challenging and therefore a really good learning experience?
-  - What were some unexpected obstacles?
-  - What tools did you use to implement this project?
-      - This might seem obvious because you are IN this codebase, but to all other humans now is the time to talk about why you chose webpack instead of create react app, or D3, or vanilla JS instead of a framework etc. Brag about your choices and justify them here.  
+Esse foi um projeto feio em 2 semanas. O objetivo desse projeto foi utilizar algumas tecnologias que eu já conheço, mas principalmente aprender sobre o ReactJS e me familiarizar com a library.
 
-#### Example:  
+Eu queria criar um e-commerce com shopping cart que permitisse que os usuários pesquisem produtos do site ou utilizem filtros como `Maior preço` para encontra-los. Eu iniciei o projeto utilizando o `create-react-app` e depois adicionando o `react-router`.
 
-This was a 3 week long project built during my third module at Turing School of Software and Design. Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.  
+Um dos desafios principais foi como compartilhar os dados da aplicação nos componentes de uma forma mais fácil. Acabei perdendo alguns dias pesquisando sobre Redux e Context API, como esse foi o meu primeiro projeto em React, sua fácil implementação e o gerenciamento de dados do site não ser tão grande, acabei utilizando o Context API. 
 
-Originally I wanted to build an application that allowed users to pull data from the Twitter API based on what they were interested in, such as 'most tagged users'. I started this process by using the `create-react-app` boilerplate, then adding `react-router-4.0` and `redux`.  
+Todas as tecnologias que eu utilizei nesse projeto são React, Context API, SCSS, Formik, Yup, React-Router, GSAP, React-icons, React-Modal e StripeJS. No meu próximo projeto pretendo trabalhar com um maior volume de dados utilizando o Redux para entender melhor o poder da ferramenta. 
 
-One of the main challenges I ran into was Authentication. This lead me to spend a few days on a research spike into OAuth, Auth0, and two-factor authentication using Firebase or other third parties. Due to project time constraints, I had to table authentication and focus more on data visualization from parts of the API that weren't restricted to authenticated users.
-
-At the end of the day, the technologies implemented in this project are React, React-Router 4.0, Redux, LoDash, D3, and a significant amount of VanillaJS, JSX, and CSS. I chose to use the `create-react-app` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes. In the next iteration I plan on handrolling a `webpack.config.js` file to more fully understand the build process.
