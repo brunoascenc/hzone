@@ -12,7 +12,7 @@ Um e-commerce de smartphones com filtros, inputs de pesquisa e gateway de pagame
 
 ## Instalação e configuração.
 
-Faça um clone desse repositório e tenha instalado `npm` e `node` na sua máquina.
+Faça um clone desse repositório. Tenha instalado `npm` e `node` na sua máquina.
 
 Instalação:
 
