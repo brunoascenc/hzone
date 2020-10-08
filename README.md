@@ -6,9 +6,9 @@ Um e-commerce de smartphones com filtros, inputs de pesquisa e shopping cart, fe
 
 #### Example:   
 
-[ PRETEND SCREEN SHOT IS HERE ]
+![](src/img/landingpage.png)
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+![](src/img/cart.png)
 
 ## Instalação e configuração.
 
