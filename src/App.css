@@ -43,7 +43,6 @@ header {
   opacity: 1;
   left: 0;
   z-index: 1;
-  height: 14vh;
   height: 88px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
@@ -52,6 +51,12 @@ header {
 @media (max-width: 960px) {
   header {
     top: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  header {
+    height: 75px;
   }
 }
 
@@ -88,7 +93,7 @@ header {
     opacity: 1;
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    z-index: 1;
+    z-index: 100;
   }
 }
 
@@ -208,8 +213,8 @@ header .navbar .cart .cart-qtd {
 
 @media (max-width: 960px) {
   header .navbar .cart .cart-qtd {
-    top: 3px;
-    left: 70px;
+    top: 7px;
+    left: 75px;
     background-color: #1c1d1d;
   }
 }
@@ -370,7 +375,6 @@ header .menu-icon {
           align-items: flex-start;
   margin-left: 3rem;
   opacity: 1;
-  z-index: 1;
   letter-spacing: 1px;
   font-weight: bold;
   color: rgba(22, 22, 22, 0.76);
@@ -532,6 +536,7 @@ header .menu-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  pointer-events: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -944,13 +949,13 @@ header .menu-icon {
 
 .details-container .product-details {
   background: #ffffff;
-  -webkit-box-shadow: 0 0 10px #bdc0c05b;
-          box-shadow: 0 0 10px #bdc0c05b;
+  -webkit-box-shadow: 0 0 10px #dbe0e05b;
+          box-shadow: 0 0 10px #dbe0e05b;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  border: solid 1px #e7e0e0;
+  border: solid 1px #e6dfdf;
 }
 
 @media (max-width: 575px) {
@@ -1047,6 +1052,12 @@ header .menu-icon {
   text-align: center;
   color: #4d4b4b;
   font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  .details-container .product-details .info {
+    border-left: none;
+  }
 }
 
 @media (max-width: 575px) {
@@ -1197,7 +1208,7 @@ header .menu-icon {
 }
 
 .details-container .hardware tr:nth-child(even) {
-  background: #f5f2f2;
+  background: #ece6e6;
 }
 
 .details-container h3 {

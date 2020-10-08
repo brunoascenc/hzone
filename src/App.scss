@@ -119,11 +119,14 @@ header {
   opacity: 1;
   left: 0;
   z-index: 1;
-  height: 14vh;
   height: 88px;
   transition: 0.3s ease;
   @include xs-desktop {
     top: 0;
+  }
+
+  @include mobile{
+    height: 75px;
   }
 
   .nav-menu {
@@ -148,7 +151,7 @@ header {
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
-      z-index: 1;
+      z-index: 100;
     }
     h1 {
       border-bottom: solid 1px #f3445b;
@@ -231,8 +234,8 @@ header {
         font-size: 12px;
         border-radius: 5rem;
         @include xs-desktop {
-          top: 3px;
-          left: 70px;
+          top: 7px;
+          left: 75px;
           background-color: #1c1d1d;
         }
       }
@@ -325,16 +328,11 @@ header {
     letter-spacing: 2px;
   }
 }
-// .home{
-//   position: relative;
-//   // z-index: -100;
-// }
 
 /*-------Landing page--------*/
 .landing-page {
   position: relative;
   height: 100vh;
-  // z-index: -1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
@@ -355,7 +353,6 @@ header {
       align-items: flex-start;
       margin-left: 3rem;
       opacity: 1;
-      z-index: 1;
       letter-spacing: 1px;
       font-weight: bold;
       color: rgba(22, 22, 22, 0.76);
@@ -468,6 +465,7 @@ header {
     width: 100%;
     height: 100%;
     display: flex;
+    pointer-events: none;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -735,10 +733,10 @@ header {
   border-radius: 3px;
   .product-details {
     background: #ffffff;
-    box-shadow: 0 0 10px #bdc0c05b;
+    box-shadow: 0 0 10px #dbe0e05b;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    border: solid 1px #e7e0e0;
+    border: solid 1px #e6dfdf;
     @include mobile {
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
@@ -787,6 +785,10 @@ header {
           color: rgb(77, 75, 75);
           font-size: 0.9rem;
         }
+      }
+
+      @include xs-desktop{
+        border-left: none;
       }
 
       @include mobile {
@@ -879,7 +881,7 @@ header {
     background: #f1ecec;
   }
   .hardware tr:nth-child(even) {
-    background: #f5f2f2;
+    background: #ece6e6;
   }
 
   h3 {
