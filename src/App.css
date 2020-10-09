@@ -104,6 +104,13 @@ header .nav-menu.active h1 {
   padding: 15px 50px;
 }
 
+@media (max-width: 375px) {
+  header .nav-menu.active h1 {
+    padding: 7px 35px;
+    font-size: 1.3rem;
+  }
+}
+
 header .navbar {
   width: 100%;
   display: -webkit-box;
@@ -187,6 +194,13 @@ header .navbar ul li {
   }
   header .navbar ul li:hover {
     background-color: #f05065;
+  }
+}
+
+@media (max-width: 375px) {
+  header .navbar ul li {
+    font-size: 0.8rem;
+    padding: 15px 35px;
   }
 }
 
@@ -495,7 +509,6 @@ header .menu-icon {
 
 .landing-page .bg-right .socials {
   margin-right: 3rem;
-  z-index: 1;
 }
 
 @media (max-width: 575px) {

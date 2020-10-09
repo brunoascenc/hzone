@@ -28,6 +28,7 @@ $small-desktop: 1200px;
 $xs-desktop: 960px;
 $tablet: 767px;
 $mobile: 575px;
+$xs-mobile: 375px;
 $main-red: #f1324c;
 $logo: "Fugaz One", cursive;
 
@@ -55,6 +56,13 @@ $logo: "Fugaz One", cursive;
     @content;
   }
 }
+
+@mixin xs-mobile {
+  @media (max-width: #{$xs-mobile}) {
+    @content;
+  }
+}
+
 
 //Mixins
 @mixin btnReset {
@@ -158,6 +166,10 @@ header {
       color: #c7d3d3;
       margin-left: 0;
       padding: 15px 50px;
+      @include xs-mobile{
+        padding: 7px 35px;
+        font-size: 1.3rem;
+      }
     }
   }
 
@@ -216,6 +228,11 @@ header {
           &:hover {
             background-color: #f05065;
           }
+        }
+
+        @include xs-mobile{
+          font-size: 0.8rem;
+          padding: 15px 35px;
         }
       }
     }
@@ -436,7 +453,6 @@ header {
     }
     .socials {
       margin-right: 3rem;
-      z-index: 1;
 
       @include mobile {
         margin-right: 2rem;
