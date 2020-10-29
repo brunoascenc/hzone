@@ -18,7 +18,7 @@ export const DataProvider = (props) => {
       });
       setCart([...cart, ...data]);
     } else {
-      alert("tudo certo");
+      console.log("tudo certo");
     }
   };
 
@@ -42,5 +42,3 @@ export const DataProvider = (props) => {
     <DataContext.Provider value={value}>{props.children}</DataContext.Provider>
   );
 };
-
-// export default DataProvider;
