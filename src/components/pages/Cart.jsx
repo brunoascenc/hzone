@@ -67,7 +67,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <div className="hehe">
+      <div>
         {cart &&
           cart.map((product) => {
             return (
