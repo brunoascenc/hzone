@@ -20,10 +20,6 @@ Para iniciar o servidor:
 
 `npm start`  
 
-Para visitar o site:
-
-`localhost:3000/`  
-
 ## Reflexão
 
 Esse foi um projeto feio em 2 semanas. O objetivo desse projeto foi utilizar algumas tecnologias que eu já conheço, mas principalmente aprender sobre o ReactJS e me familiarizar com a library.
