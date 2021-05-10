@@ -11,7 +11,7 @@ import Details from "./pages/Details/Details";
 import Footer from "./components/Footer/Footer";
 import { DataProvider } from "./data/DataProvider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ScrollToTop from "./custom-hooks/ScrollToTop"
+import ScrollToTop from "./custom-hooks/ScrollToTop";
 import "./App.css";
 
 function App() {

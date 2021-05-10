@@ -1,5 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { DataContext } from "../data/DataProvider";
+// import { addCollectionAndDocuments } from "../firebase/firebase-utils";
+
 
 const useFilteredProds = () => {
   const value = useContext(DataContext);
@@ -14,6 +16,8 @@ const useFilteredProds = () => {
         product.titulo.toLowerCase().includes(search.toLowerCase())
       )
     );
+
+    // addCollectionAndDocuments('collections', products)
   }, [search, products]);
 
   useEffect(() => {
