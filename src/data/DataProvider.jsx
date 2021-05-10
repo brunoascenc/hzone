@@ -1,21 +1,32 @@
 import React, { createContext, useState, useEffect } from "react";
-import { firestore, convertCollectionsSnapshotToMap } from "../firebase/firebase-utils";
-import useData from "./useData";
-
+import { firestore } from "../firebase/firebase-utils";
+// import useData from "./useData";
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
-  const [products, setProducts] = useData();
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  //firebase transformed data
+  const convertCollectionsSnapshotToMap = (collections) => {
+    const transformedCollection = collections.docs.map((doc) => {
+      const data = doc.data();
+
+      return data;
+    });
+
+    setProducts(transformedCollection);
+  };
+
+  //firebase transformed data
   useEffect(() => {
-    const collectionRef = firestore.collection('collections');
-    
-    collectionRef.onSnapshot(async snapshot => {
-      convertCollectionsSnapshotToMap(snapshot)
-    })
-  }, [])
+    const collectionRef = firestore.collection("collections");
+
+    collectionRef.onSnapshot(async (snapshot) => {
+      convertCollectionsSnapshotToMap(snapshot);
+    });
+  }, []);
 
   //Adicionar ao carrinho
   const addCart = (id) => {

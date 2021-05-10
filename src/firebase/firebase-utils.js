@@ -23,21 +23,22 @@ export const addCollectionAndDocuments = async (
   const batch = firestore.batch();
   objectsToAdd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
+    console.log(newDocRef)
     batch.set(newDocRef, obj);
   });
 
   return await batch.commit();
 };
 
-export const convertCollectionsSnapshotToMap = (collections) => {
-  const transformedCollection = collections.docs.map((doc) => {
-    const data = doc.data();
+// export const convertCollectionsSnapshotToMap = (collections) => {
+//   const transformedCollection = collections.docs.map((doc) => {
+//     const data = doc.data();
 
-    return data
-  });
+//     return data
+//   });
 
-  console.log(transformedCollection);
-};
+//   console.log(transformedCollection);
+// };
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
