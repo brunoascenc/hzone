@@ -1,11 +1,21 @@
 import React, { createContext, useState, useEffect } from "react";
+import { firestore, convertCollectionsSnapshotToMap } from "../firebase/firebase-utils";
 import useData from "./useData";
+
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
   const [products, setProducts] = useData();
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const collectionRef = firestore.collection('collections');
+    
+    collectionRef.onSnapshot(async snapshot => {
+      convertCollectionsSnapshotToMap(snapshot)
+    })
+  }, [])
 
   //Adicionar ao carrinho
   const addCart = (id) => {
