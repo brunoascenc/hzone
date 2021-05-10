@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { DataContext } from "../data/DataProvider";
-import Dropdown from "../components/Dropdown";
-import "../App.css";
+import { DataContext } from "../../data/DataProvider";
+import Dropdown from "../Dropdown/Dropdown";
+import "../../App.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { VscMenu, VscClose } from "react-icons/vsc";

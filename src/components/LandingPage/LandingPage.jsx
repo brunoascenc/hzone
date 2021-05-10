@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import "../App.css";
+import "../../App.css";
 import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
 import { IconContext } from "react-icons";
-import banner from "../img/iphones.png";
+import banner from "../../img/iphones.png";
 import { TweenMax, Power3 } from "gsap";
 import { Link } from "react-scroll";
 

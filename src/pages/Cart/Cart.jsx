@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { DataContext } from "../../data/DataProvider";
-import Checkout from "../Checkout";
+import Checkout from "../../components/Checkout/Checkout";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -8,8 +8,6 @@ const Cart = () => {
   const value = useContext(DataContext);
   const [cart, setCart] = value.cart;
   const [total, setTotal] = useState(0);
-
-  // cart.length = []
 
   //Total price
   useEffect(() => {

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import Modal from "react-modal";
-import { DataContext } from "../data/DataProvider";
+import { DataContext } from "../../data/DataProvider";
 import { VscClose } from "react-icons/vsc";
-import "../App.css";
+import "../../App.css";
 import StripeCheckout from "react-stripe-checkout";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,6 @@ const Checkout = ({ total, product }) => {
         className="modal"
         isOpen={modalIsOpen}
         ariaHideApp={false}
-        // onRequestClose={closeModal}
       >
         <div className="modal-content">
           <button onClick={closeModal}>

@@ -1,26 +1,26 @@
 import React from "react";
 import "../../App.css";
-import motoBanner from "../../img/motobanner.jpg";
-import useFilteredProds from "../hooks/useFilteredProds";
-import OrderBy from "../hooks/OrderBy";
-import ProductCard from "../ProductsCard";
+import appleBanner from "../../img/applebanner.png"
+import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import OrderBy from "../../custom-hooks/OrderBy";
+import ProductCard from "../../components/ProductsCard/ProductsCard";
 
-const Motorola = () => {
+const Apple = () => {
   const [filteredProds, setSearch] = useFilteredProds();
-  const motoProd = filteredProds.filter((cel) => cel.marca === "Motorola");
-  const [sorted, handleOrderBy] = OrderBy(motoProd);
+  const appleProd = filteredProds.filter((cel) => cel.marca === "Apple");
+  const [sorted, handleOrderBy] = OrderBy(appleProd);
 
   const bannerStyle = {
-    background: `url(${motoBanner})center no-repeat`,
+    background: `url(${appleBanner}) no-repeat`,
     width: "100%",
     backgroundSize: "cover",
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="banner" style={bannerStyle}></div>
       <div className="products-header">
-        <h1>Motorola</h1>
+        <h1>Apple</h1>
       </div>
       <div className="filters">
         <input
@@ -42,4 +42,4 @@ const Motorola = () => {
   );
 };
 
-export default Motorola;
+export default Apple;

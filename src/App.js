@@ -1,17 +1,17 @@
 import React from "react";
-import Header from "./components/Header";
-import Home from "./components/pages/Home";
-import Apple from "./components/pages/Apple";
-import Samsung from "./components/pages/Samsung";
-import Asus from "./components/pages/Asus";
-import Motorola from "./components/pages/Motorola";
-import Contact from "./components/pages/Contact";
-import Cart from "./components/pages/Cart";
-import Details from "./components/pages/Details";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Home from "./pages/Home/Home";
+import Apple from "./pages/Apple/Apple";
+import Samsung from "./pages/Samsung/Samsung";
+import Asus from "./pages/Asus/Asus";
+import Motorola from "./pages/Motorola/Motorola";
+import Contact from "./pages/Contact/Contact";
+import Cart from "./pages/Cart/Cart";
+import Details from "./pages/Details/Details";
+import Footer from "./components/Footer/Footer";
 import { DataProvider } from "./data/DataProvider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ScrollToTop from "./components/hooks/ScrollToTop";
+import ScrollToTop from "./custom-hooks/ScrollToTop"
 import "./App.css";
 
 function App() {

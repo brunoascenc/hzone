@@ -1,8 +1,8 @@
 import React from "react";
 import "../../App.css";
-import LandingPage from "../LandingPage";
-import useFilteredProds from "../hooks/useFilteredProds";
-import ProductCard from "../ProductsCard";
+import LandingPage from "../../components/LandingPage/LandingPage";
+import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Home = () => {
   const [filteredProds, setSearch, setSearchMarca] = useFilteredProds();

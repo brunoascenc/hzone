@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import "../App.css";
+import "../../App.css";
 import FormErrors from "./FormErrors";
 import Modal from "react-modal";
 import { VscClose } from "react-icons/vsc";

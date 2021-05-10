@@ -1,26 +1,26 @@
 import React from "react";
 import "../../App.css";
-import asusBanner from "../../img/asusbanner.jpg";
-import useFilteredProds from "../hooks/useFilteredProds";
-import OrderBy from "../hooks/OrderBy";
-import ProductCard from "../ProductsCard";
+import samBanner from "../../img/sambanner.jpg";
+import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import OrderBy from "../../custom-hooks/OrderBy";
+import ProductCard from "../../components/ProductsCard/ProductsCard";
 
-const Asus = () => {
+const Samsung = () => {
   const [filteredProds, setSearch] = useFilteredProds();
-  const asusProd = filteredProds.filter((cel) => cel.marca === "Asus");
-  const [sorted, handleOrderBy] = OrderBy(asusProd);
+  const samProd = filteredProds.filter((cel) => cel.marca === "Samsung");
+  const [sorted, handleOrderBy] = OrderBy(samProd);
 
   const bannerStyle = {
-    background: `url(${asusBanner})center no-repeat`,
+    background: `url(${samBanner}) no-repeat`,
     width: "100%",
     backgroundSize: "cover",
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="banner" style={bannerStyle}></div>
       <div className="products-header">
-        <h1>Asus</h1>
+        <h1>Samsung</h1>
       </div>
       <div className="filters">
         <input
@@ -42,4 +42,4 @@ const Asus = () => {
   );
 };
 
-export default Asus;
+export default Samsung;

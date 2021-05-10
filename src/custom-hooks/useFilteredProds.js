@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { DataContext } from "../../data/DataProvider";
+import { DataContext } from "../data/DataProvider";
 
 const useFilteredProds = () => {
   const value = useContext(DataContext);
