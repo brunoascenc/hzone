@@ -30,15 +30,15 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
-// export const convertCollectionsSnapshotToMap = (collections) => {
-//   const transformedCollection = collections.docs.map((doc) => {
-//     const data = doc.data();
+export const convertProductsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const data = doc.data();
 
-//     return data
-//   });
+    return data
+  });
 
-//   console.log(transformedCollection);
-// };
+  return transformedCollection
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
