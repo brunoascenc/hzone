@@ -9,6 +9,7 @@ import Contact from "./pages/Contact/Contact";
 import Cart from "./pages/Cart/Cart";
 import Details from "./pages/Details/Details";
 import Footer from "./components/Footer/Footer";
+import signInAndSignUp from "./pages/SignIn-SignUp/SignIn-SignUp";
 import { DataProvider } from "./data/DataProvider";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ScrollToTop from "./custom-hooks/ScrollToTop";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/contact" component={Contact} />
               <Route path="/cart" component={Cart} />
               <Route path="/details/:id" component={Details} />
+              <Route path="/signin" component={signInAndSignUp} />
             </Switch>
             <Footer />
           </div>

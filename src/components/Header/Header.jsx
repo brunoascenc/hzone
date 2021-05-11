@@ -106,6 +106,9 @@ const Header = () => {
             <Link to="/contact" onClick={closeMobileMenu}>
               <li className="nav-link">Contato</li>
             </Link>
+            <Link to="/signin" onClick={closeMobileMenu}>
+              <li className="nav-link">Entrar</li>
+            </Link>
             <div className="cart">
               <Link to="/cart" onClick={closeMobileMenu}>
                 <IconContext.Provider
