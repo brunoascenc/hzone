@@ -1,32 +1,17 @@
 import React, { createContext, useState, useEffect } from "react";
-// import { firestore } from "../firebase/firebase-utils";
-import useData from "./useData";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductsStart } from "../redux/products/products-actions";
 
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
-  const [products, setProducts] = useData();
+  const apiData = useSelector((state) => state.products.products);
   const [cart, setCart] = useState([]);
+  const dispatch = useDispatch();
 
-  // //firebase transformed data
-  // const convertCollectionsSnapshotToMap = (collections) => {
-  //   const transformedCollection = collections.docs.map((doc) => {
-  //     const data = doc.data();
-
-  //     return data;
-  //   });
-
-  //   setProducts(transformedCollection);
-  // };
-
-  //firebase transformed data
-  // useEffect(() => {
-  //   const collectionRef = firestore.collection("collections");
-
-  //   collectionRef.onSnapshot(async (snapshot) => {
-  //     convertCollectionsSnapshotToMap(snapshot);
-  //   });
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+  }, [dispatch]);
 
   //Adicionar ao carrinho
   const addCart = (id) => {
@@ -34,7 +19,7 @@ export const DataProvider = (props) => {
       return item.id !== id;
     });
     if (check) {
-      const data = products.filter((product) => {
+      const data = apiData.filter((product) => {
         return product.id === id;
       });
       setCart([...cart, ...data]);
@@ -54,7 +39,7 @@ export const DataProvider = (props) => {
   }, [cart]);
 
   const value = {
-    products: [products, setProducts],
+    products: apiData,
     cart: [cart, setCart],
     addCart: addCart,
   };

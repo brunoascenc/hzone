@@ -8,7 +8,6 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 const Details = (props) => {
   const apiData = useSelector((state) => state.products.products);
   const value = useContext(DataContext);
-  // const [products] = value.products;
   const addCart = value.addCart;
   const productDetail = apiData.find(
     (item) => item.id === props.match.params.id

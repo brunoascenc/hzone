@@ -1,19 +1,16 @@
-import React, {useEffect}  from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../../data/DataProvider";
 import "../../App.css";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import LandingPage from "../../components/LandingPage/LandingPage";
-import {fetchProductsStart} from '../../redux/products/products-actions'
+// import {fetchProductsStart} from '../../redux/products/products-actions'
 import useFilteredProds from "../../custom-hooks/useFilteredProds"
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Home = () => {
-  const apiData = useSelector((state) => state.products.products);
+  const value = useContext(DataContext);
+  const apiData = value.products
   const [filteredProds, setSearch, setSearchMarca] = useFilteredProds(apiData);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProductsStart());
-  }, [dispatch]);
 
   return (
     <div className="home">
