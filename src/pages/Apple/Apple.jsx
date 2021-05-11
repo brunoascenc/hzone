@@ -1,16 +1,15 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
-import appleBanner from "../../img/applebanner.png"
+import appleBanner from "../../img/applebanner.png";
 import { useSelector, useDispatch } from "react-redux";
-import {fetchProductsStart} from '../../redux/products/products-actions'
-
-import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import { fetchProductsStart } from "../../redux/products/products-actions";
+import useFilteredProds from "../../custom-hooks/useFilteredProds";
 import OrderBy from "../../custom-hooks/OrderBy";
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Apple = () => {
-  const [filteredProds, setSearch] = useFilteredProds();
-  // const xd = useSelector((state) => state.products.results);
+  const apiData = useSelector((state) => state.products.products);
+  const [filteredProds, setSearch] = useFilteredProds(apiData);
   const appleProd = filteredProds.filter((cel) => cel.marca === "Apple");
   const [sorted, handleOrderBy] = OrderBy(appleProd);
   const dispatch = useDispatch();

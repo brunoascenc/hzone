@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
 import motoBanner from "../../img/motobanner.jpg";
-import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductsStart } from "../../redux/products/products-actions";
+import useFilteredProds from "../../custom-hooks/useFilteredProds";
 import OrderBy from "../../custom-hooks/OrderBy";
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Motorola = () => {
-  const [filteredProds, setSearch] = useFilteredProds();
+  const apiData = useSelector((state) => state.products.products);
+  const [filteredProds, setSearch] = useFilteredProds(apiData);
   const motoProd = filteredProds.filter((cel) => cel.marca === "Motorola");
   const [sorted, handleOrderBy] = OrderBy(motoProd);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+  }, [dispatch]);
 
   const bannerStyle = {
     background: `url(${motoBanner})center no-repeat`,

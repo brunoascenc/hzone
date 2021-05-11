@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
 import asusBanner from "../../img/asusbanner.jpg";
-import useFilteredProds from "../../custom-hooks/useFilteredProds"
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductsStart } from "../../redux/products/products-actions";
+import useFilteredProds from "../../custom-hooks/useFilteredProds";
 import OrderBy from "../../custom-hooks/OrderBy";
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Asus = () => {
-  const [filteredProds, setSearch] = useFilteredProds();
+  const apiData = useSelector((state) => state.products.products);
+  const [filteredProds, setSearch] = useFilteredProds(apiData);
   const asusProd = filteredProds.filter((cel) => cel.marca === "Asus");
   const [sorted, handleOrderBy] = OrderBy(asusProd);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+  }, [dispatch]);
 
   const bannerStyle = {
     background: `url(${asusBanner})center no-repeat`,

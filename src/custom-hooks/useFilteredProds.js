@@ -1,30 +1,24 @@
-import { useContext, useState, useEffect } from "react";
-import { DataContext } from "../data/DataProvider";
-// import { addCollectionAndDocuments } from "../firebase/firebase-utils";
+import { useState, useEffect } from "react";
 
-
-const useFilteredProds = () => {
-  const value = useContext(DataContext);
-  const [products] = value.products;
+const useFilteredProds = (apiData) => {
   const [search, setSearch] = useState("");
-  const [filteredProds, setFilteredProds] = useState([]);
+  const [filteredProds, setFilteredProds] = useState(apiData);
   const [searchMarca, setSearchMarca] = useState([]);
 
   useEffect(() => {
     setFilteredProds(
-      products.filter((product) =>
+      apiData.filter((product) =>
         product.titulo.toLowerCase().includes(search.toLowerCase())
       )
     );
 
-    // addCollectionAndDocuments('collections', products)
-  }, [search, products]);
+  }, [search, apiData]);
 
   useEffect(() => {
     setFilteredProds(
-      products.filter((product) => product.marca.includes(searchMarca))
+      apiData.filter((product) => product.marca.includes(searchMarca))
     );
-  }, [searchMarca, products]);
+  }, [searchMarca, apiData]);
 
   return [filteredProds, setSearch, setSearchMarca];
 };

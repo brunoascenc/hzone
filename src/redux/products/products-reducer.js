@@ -1,7 +1,7 @@
 import ProductsActionTypes from "./products-types";
 
 const INITIAL_STATE = {
-  products: null,
+  products: [],
   isFetching: false,
   errorMessage: undefined,
 };

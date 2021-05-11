@@ -1,13 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProductsStart } from "../../redux/products/products-actions";
 import { DataContext } from "../../data/DataProvider";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Details = (props) => {
+  const apiData = useSelector((state) => state.products.products);
   const value = useContext(DataContext);
-  const [products] = value.products;
+  // const [products] = value.products;
   const addCart = value.addCart;
-  const productDetail = products.find(
+  const productDetail = apiData.find(
     (item) => item.id === props.match.params.id
   );
 
@@ -16,6 +19,12 @@ const Details = (props) => {
   const changeImg = (e) => {
     setImg(e.target.src);
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+  }, [dispatch]);
 
   return (
     <div className="details-container">

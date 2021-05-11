@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useEffect}  from "react";
 import "../../App.css";
+import { useSelector, useDispatch } from "react-redux";
 import LandingPage from "../../components/LandingPage/LandingPage";
+import {fetchProductsStart} from '../../redux/products/products-actions'
 import useFilteredProds from "../../custom-hooks/useFilteredProds"
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Home = () => {
-  const [filteredProds, setSearch, setSearchMarca] = useFilteredProds();
+  const apiData = useSelector((state) => state.products.products);
+  const [filteredProds, setSearch, setSearchMarca] = useFilteredProds(apiData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProductsStart());
+  }, [dispatch]);
 
   return (
     <div className="home">
