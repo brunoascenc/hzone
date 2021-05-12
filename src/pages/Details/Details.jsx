@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProductsStart } from "../../redux/products/products-actions";
 import { DataContext } from "../../data/DataProvider";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cart-actions";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const Details = (props) => {
@@ -59,14 +61,15 @@ const Details = (props) => {
           </div>
           <div className="carrinho-btn">
             <span className="detalhe"> {productDetail.tituloDetalhe} </span>
-            <Link to="/cart" onClick={() => addCart(productDetail.id)}>
+            {/* <Link to="/cart" onClick={() => addItem(productDetail)}> */}
+              <button onClick={() => addItem(productDetail)}>xasasas</button>
               <button>
                 Adicionar ao carrinho
                 <span>
                   <AiOutlineShoppingCart />
                 </span>
               </button>
-            </Link>
+            {/* </Link> */}
           </div>
         </div>
       </div>
@@ -141,4 +144,8 @@ const Details = (props) => {
   );
 };
 
-export default Details;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
+
+export default connect(null, mapDispatchToProps)(Details)
