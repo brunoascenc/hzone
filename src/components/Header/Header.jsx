@@ -1,4 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "../../redux/user/user-selector";
 import { Link } from "react-router-dom";
 import { DataContext } from "../../data/DataProvider";
 import Dropdown from "../Dropdown/Dropdown";
@@ -7,8 +10,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { VscMenu, VscClose } from "react-icons/vsc";
 import { IoIosArrowDown } from "react-icons/io";
+import { signOutStart } from "../../redux/user/user-actions";
+import { selectCartItems } from "../../redux/cart/cart-selector";
 
-const Header = () => {
+const Header = ({ currentUser, signOutStart, cartItems}) => {
   const value = useContext(DataContext);
   const [cart] = value.cart;
   const [click, setClick] = useState(false);
@@ -106,9 +111,15 @@ const Header = () => {
             <Link to="/contact" onClick={closeMobileMenu}>
               <li className="nav-link">Contato</li>
             </Link>
-            <Link to="/signin" onClick={closeMobileMenu}>
-              <li className="nav-link">Entrar</li>
-            </Link>
+            {currentUser ? (
+              <Link as="div" onClick={signOutStart}>
+                SIGN OUT
+              </Link>
+            ) : (
+              <Link to="/signin" onClick={closeMobileMenu}>
+                <li className="nav-link">Entrar</li>
+              </Link>
+            )}
             <div className="cart">
               <Link to="/cart" onClick={closeMobileMenu}>
                 <IconContext.Provider
@@ -120,7 +131,7 @@ const Header = () => {
                     <AiOutlineShoppingCart />
                   </li>
                 </IconContext.Provider>
-                <span className="cart-qtd">{cart.length}</span>
+                <span className="cart-qtd">{cartItems.length}</span>
               </Link>
             </div>
           </ul>
@@ -130,4 +141,13 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  cartItems: selectCartItems
+});
+
+const mapDipatchToProps = (dispatch) => ({
+  signOutStart: () => dispatch(signOutStart()),
+});
+
+export default connect(mapStateToProps, mapDipatchToProps)(Header);
