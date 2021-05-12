@@ -1,57 +1,65 @@
-import React, { useContext, useState, useEffect } from "react";
-import { DataContext } from "../../data/DataProvider";
+import React, {useState, useEffect } from "react";
+import { connect } from "react-redux";
+import {createStructuredSelector} from 'reselect'
+// import { DataContext } from "../../data/DataProvider";
 import Checkout from "../../components/Checkout/Checkout";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { selectCartItems } from "../../redux/cart/cart-selector";
+import {
+  clearItemFromCart,
+  addItem,
+  removeItem,
+} from "../../redux/cart/cart-actions";
 
-const Cart = () => {
-  const value = useContext(DataContext);
-  const [cart, setCart] = value.cart;
+const Cart = ({cartItems}) => {
+  // const value = useContext(DataContext);
+  const [cart, setCart] = useState([cartItems]);
   const [total, setTotal] = useState(0);
 
   //Total price
   useEffect(() => {
     const getTotal = () => {
-      const res = cart.reduce((prev, item) => {
+      const res = cartItems.reduce((prev, item) => {
         return prev + item.preco * item.count;
       }, 0);
       const totalValue = res.toFixed(2).toString().replace(".", ",");
       setTotal(totalValue);
     };
     getTotal();
-  }, [cart]);
+  }, [cartItems]);
 
   //Items Quantity
   const decrement = (id) => {
-    cart.forEach((item) => {
+    cartItems.forEach((item) => {
       if (item.id === id) {
         item.count === 1 ? (item.count = 1) : (item.count -= 1);
       }
     });
-    setCart([...cart]);
+    setCart([...cartItems]);
   };
 
   const increment = (id) => {
-    cart.forEach((item) => {
+    cartItems.forEach((item) => {
       if (item.id === id) {
         item.count += 1;
       }
     });
-    setCart([...cart]);
+    setCart([...cartItems]);
   };
 
   const removeProduct = (id) => {
     if (window.confirm("Deseja mesmo remover?")) {
-      cart.forEach((item, index) => {
+      cartItems.forEach((item, index) => {
         if (item.id === id) {
-          cart.splice(index, 1);
+          cartItems.splice(index, 1);
         }
       });
-      setCart([...cart]);
+      setCart([...cartItems]);
     }
   };
 
-  if (cart.length === 0)
+  if (cartItems.length === 0)
     return (
       <div className="empty-cart">
         <div className="message">
@@ -66,8 +74,8 @@ const Cart = () => {
   return (
     <div className="cart-container">
       <div>
-        {cart &&
-          cart.map((product) => {
+        {cartItems &&
+          cartItems.map((product) => {
             return (
               <div key={product.id} className="cart-card">
                 <img src={product.imagem} alt={product.titulo} />
@@ -104,10 +112,21 @@ const Cart = () => {
 
       <div className="total-price">
         <h3>Total: R$: {total}</h3>
-        <Checkout product={cart} total={total} />
+        <Checkout product={cartItems} total={total} />
       </div>
     </div>
   );
 };
 
-export default Cart;
+const mapStateToProps = createStructuredSelector ({
+  cartItems: selectCartItems
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   clearItem: (item) => dispatch(clearItemFromCart(item)),
+//   addItem: item => dispatch(addItem(item)),
+//   removeItem: item => dispatch(removeItem(item))
+// });
+
+
+export default connect(mapStateToProps)(Cart);

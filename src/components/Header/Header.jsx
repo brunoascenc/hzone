@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
 import { Link } from "react-router-dom";
-import { DataContext } from "../../data/DataProvider";
+// import { DataContext } from "../../data/DataProvider";
 import Dropdown from "../Dropdown/Dropdown";
 import "../../App.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -14,8 +14,8 @@ import { signOutStart } from "../../redux/user/user-actions";
 import { selectCartItems } from "../../redux/cart/cart-selector";
 
 const Header = ({ currentUser, signOutStart, cartItems}) => {
-  const value = useContext(DataContext);
-  const [cart] = value.cart;
+  // const value = useContext(DataContext);
+  // const [cart] = value.cart;
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -112,7 +112,7 @@ const Header = ({ currentUser, signOutStart, cartItems}) => {
               <li className="nav-link">Contato</li>
             </Link>
             {currentUser ? (
-              <Link as="div" onClick={signOutStart}>
+              <Link to="/" onClick={signOutStart}>
                 SIGN OUT
               </Link>
             ) : (
