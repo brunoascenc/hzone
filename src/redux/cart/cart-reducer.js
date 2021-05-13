@@ -2,17 +2,17 @@ import CartActionTypes from "./cart-types";
 import { addItemToCart, removeItemFromCart } from "./cart-utils";
 
 const INITIAL_STATE = {
-  hidden: true,
-  cartItems: []
+  //   hidden: true,
+  cartItems: [],
 };
 
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CartActionTypes.TOGGLE_CART_HIDDEN:
-      return {
-        ...state,
-        hidden: !state.hidden,
-      };
+    // case CartActionTypes.TOGGLE_CART_HIDDEN:
+    //   return {
+    //     ...state,
+    //     hidden: !state.hidden,
+    //   };
     case CartActionTypes.ADD_ITEM:
       return {
         ...state,
@@ -29,6 +29,24 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         cartItems: state.cartItems.filter(
           (cartItem) => cartItem.id !== action.payload.id
         ),
+      };
+    case CartActionTypes.INCREMENT_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItem.forEach((cartItem) => {
+          if (cartItem.id === action.payload.id) {
+            cartItem.count += 1;
+          }
+        }),
+      };
+      case CartActionTypes.DECREMENT_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItem.forEach((cartItem) => {
+            if (cartItem.id === action.payload.id) {
+                cartItem.count === 1 ? (cartItem.count = 1) : (cartItem.count -= 1);
+            }
+          }),
       };
     case CartActionTypes.CLEAR_CART:
       return {

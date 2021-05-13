@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
 import { Link } from "react-router-dom";
-// import { DataContext } from "../../data/DataProvider";
 import Dropdown from "../Dropdown/Dropdown";
 import "../../App.css";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -11,14 +10,16 @@ import { IconContext } from "react-icons";
 import { VscMenu, VscClose } from "react-icons/vsc";
 import { IoIosArrowDown } from "react-icons/io";
 import { signOutStart } from "../../redux/user/user-actions";
-import { selectCartItems } from "../../redux/cart/cart-selector";
+import { useSelector } from "react-redux";
+// import { selectCartItems } from "../../redux/cart/cart-selector";
 
 const Header = ({ currentUser, signOutStart, cartItems}) => {
   // const value = useContext(DataContext);
   // const [cart] = value.cart;
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-
+  const cartItem = useSelector((state) => state.cart.cartItems);
+  
   //Mobile menu
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -131,7 +132,7 @@ const Header = ({ currentUser, signOutStart, cartItems}) => {
                     <AiOutlineShoppingCart />
                   </li>
                 </IconContext.Provider>
-                <span className="cart-qtd">{cartItems.length}</span>
+                <span className="cart-qtd">{cartItem.length}</span>
               </Link>
             </div>
           </ul>
@@ -143,7 +144,7 @@ const Header = ({ currentUser, signOutStart, cartItems}) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  cartItems: selectCartItems
+  // cartItems: selectCartItems
 });
 
 const mapDipatchToProps = (dispatch) => ({
