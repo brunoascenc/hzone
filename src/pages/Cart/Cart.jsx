@@ -1,85 +1,38 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import {createStructuredSelector} from 'reselect'
-// import { DataContext } from "../../data/DataProvider";
+import { createStructuredSelector } from "reselect";
 import Checkout from "../../components/Checkout/Checkout";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { selectCartItems } from "../../redux/cart/cart-selector";
+import {
+  selectCartItems,
+  selectCartItemsCount,
+  selectCartTotal,
+} from "../../redux/cart/cart-selector";
 import {
   clearItemFromCart,
-  addItem,
-  removeItem,
   decrementItem,
-  incrementItem
+  incrementItem,
 } from "../../redux/cart/cart-actions";
 import { useSelector } from "react-redux";
 
-const Cart = ({removeItem, clearItem}) => {
-  // const value = useContext(DataContext);
+const Cart = ({ totalPrice, clearItem, decrementItem, incrementItem }) => {
   const cartItem = useSelector((state) => state.cart.cartItems);
-  const [cart, setCart] = useState([cartItem]);
-  const [total, setTotal] = useState(0);
-
-
-  //Total price
-  useEffect(() => {
-    const getTotal = () => {
-      const res = cartItem.reduce((prev, item) => {
-        return prev + item.preco * item.count;
-      }, 0);
-      const totalValue = res.toFixed(2).toString().replace(".", ",");
-      setTotal(totalValue);
-    };
-    getTotal();
-  }, [cartItem]);
-
-  //Items Quantity
-  const decrement = (id) => {
-    cartItem.forEach((item) => {
-      if (item.id === id) {
-        item.count === 1 ? (item.count = 1) : (item.count -= 1);
-      }
-    });
-    setCart([...cartItem]);
-  };
-
-  const increment = (id) => {
-    cartItem.forEach((item) => {
-      if (item.id === id) {
-        item.count += 1;
-      }
-    });
-    setCart([...cartItem]);
-  };
-
-//   const removeProduct = (id) => {
-//     if (window.confirm("Deseja mesmo remover?")) {
-//       cartItem.forEach((item, index) => {
-//         if (item.id === id) {
-//           cartItem.splice(index, 1);
-//         }
-//       });
-//       setCart([...cartItem]);
-//     }
-//   };
-
-  if (cartItem.length === 0)
-    return (
-      <div className="empty-cart">
-        <div className="message">
-          <h1>Carrinho Vazio :(</h1>
-          <p>
-            De uma olhada em nossos <Link to="/">produtos</Link>
-          </p>
-        </div>
-      </div>
-    );
+  const fixedTotalPrice = totalPrice.toFixed(2).toString().replace(".", ",");
 
   return (
     <div className="cart-container">
       <div>
-        {cartItem &&
+        {cartItem.length === 0 ? (
+          <div className="empty-cart">
+            <div className="message">
+              <h1>Carrinho Vazio :(</h1>
+              <p>
+                De uma olhada em nossos <Link to="/">produtos</Link>
+              </p>
+            </div>
+          </div>
+        ) : (
           cartItem.map((product) => {
             return (
               <div key={product.id} className="cart-card">
@@ -104,38 +57,33 @@ const Cart = ({removeItem, clearItem}) => {
                   </div>
                 </div>
 
-                <div
-                  className="delete"
-                  onClick={() => clearItem(product)}
-                >
+                <div className="delete" onClick={() => clearItem(product)}>
                   <AiOutlineClose />
                 </div>
               </div>
             );
-          })}
+          })
+        )}
       </div>
 
       <div className="total-price">
-        <h3>Total: R$: {total}</h3>
-        <Checkout product={cartItem} total={total} />
+        <h3>Total: R$: {fixedTotalPrice}</h3>
+        <Checkout product={cartItem} total={fixedTotalPrice} />
       </div>
     </div>
   );
 };
 
-// const mapStateToProps = createStructuredSelector ({
-//   cartItems: selectCartItems
-// });
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
+  quantity: selectCartItemsCount,
+  totalPrice: selectCartTotal,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   clearItem: (item) => dispatch(clearItemFromCart(item)),
   incrementItem: (item) => dispatch(incrementItem(item)),
-  decrementItem: (item) => dispatch(decrementItem(item))
-  // addItem: item => dispatch(addItem(item)),
-//   removeItem: (item) => dispatch(removeItem(item))
+  decrementItem: (item) => dispatch(decrementItem(item)),
 });
 
-
-export default connect(null, mapDispatchToProps)(Cart);
-
-// export default Cart 
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

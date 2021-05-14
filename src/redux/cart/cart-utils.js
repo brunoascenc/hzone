@@ -14,17 +14,21 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
 };
 
-export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-    const existingCartItem = cartItems.find(
-        (cartItem) => cartItem.id === cartItemToRemove.id
-    );
-
-    if (existingCartItem.quantity === 1) {
-        return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.add);
+//Items Quantity
+export const decrementQuantity = (cartItem, id) => {
+  cartItem.forEach((item) => {
+    if (item.id === id) {
+      item.count === 1 ? (item.count = 1) : (item.count -= 1);
     }
+  });
+  return [...cartItem];
+};
 
-    return cartItems.map((cartItem) =>
-        cartItem.id === cartItemToRemove.id ? { ...cartItems, quantity: cartItems.length - 1 } :
-        cartItem
-    );
+export const incrementQuantity = (cartItem, id) => {
+  cartItem.forEach((item) => {
+    if (item.id === id) {
+      item.count += 1;
+    }
+  });
+  return [...cartItem];
 };
