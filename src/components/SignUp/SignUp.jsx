@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../../App.scss";
 import { connect } from "react-redux";
-import FormInput from '../Form-Input/Form-Input'
-// import CustomButton from "../custom-button/CustomButton";
+import FormInput from "../Form-Input/Form-Input";
 import { signUpStart } from "../../redux/user/user-actions";
 
 const SignUp = ({ signUpStart }) => {
@@ -24,14 +23,12 @@ const SignUp = ({ signUpStart }) => {
     }
 
     signUpStart({ displayName, email, password });
-    // console.log('xd')
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     setUserCredentials({ ...userCredentials, [name]: value });
-    // console.log('xd')
   };
 
   return (
@@ -74,7 +71,6 @@ const SignUp = ({ signUpStart }) => {
           label="Confirm Password"
           required
         ></FormInput>
-        {/* <button>signup</button> */}
 
         <button type="submit"> SIGN UP </button>
       </form>
@@ -87,4 +83,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(SignUp);
-// export default SignUp

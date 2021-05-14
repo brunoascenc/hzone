@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchProductsStart } from "../../redux/products/products-actions";
-// import { DataContext } from "../../data/DataProvider";
+import React, { useContext, useState } from "react";
+import { DataContext } from "../../data/DataProvider";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart-actions";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+// import ProductDetails from "../../components/ProductDetails/ProductDetails";
 
 const Details = (props) => {
-  const apiData = useSelector((state) => state.products.products);
-  // const value = useContext(DataContext);
-  // const addCart = value.addCart;
+  const value = useContext(DataContext);
+  const apiData = value.products;
   const productDetail = apiData.find(
     (item) => item.id === props.match.params.id
   );
@@ -20,12 +18,6 @@ const Details = (props) => {
   const changeImg = (e) => {
     setImg(e.target.src);
   };
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProductsStart());
-  }, [dispatch]);
 
   return (
     <div className="details-container">
@@ -147,4 +139,4 @@ const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItem(item)),
 });
 
-export default connect(null, mapDispatchToProps)(Details)
+export default connect(null, mapDispatchToProps)(Details);

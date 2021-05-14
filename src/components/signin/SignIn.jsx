@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../../App.scss";
 import { connect } from "react-redux";
-// import CustomButton from "../custom-button/CustomButton";
-import FormInput from '../Form-Input/Form-Input'
+import FormInput from "../Form-Input/Form-Input";
 import {
   googleSignInStart,
   emailSignInStart,
@@ -17,14 +16,12 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     emailSignInStart(email, password);
-    // console.log('hei')
   };
 
   const handleChange = (e) => {
     const { value, name } = e.target;
 
     setCredentials({ ...userCredentials, [name]: value });
-    // console.log('xd')
   };
 
   return (
@@ -55,13 +52,10 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
           <button
             type="button"
             onClick={googleSignInStart}
-            // isGoogleSignIn
           >
             Sign in with google
           </button>
-          {/* <button>
-signin
-          </button> */}
+
         </div>
       </form>
     </div>
@@ -75,4 +69,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(SignIn);
-// export default SignIn;

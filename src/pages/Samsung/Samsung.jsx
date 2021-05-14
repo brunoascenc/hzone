@@ -2,15 +2,13 @@ import React, { useContext } from "react";
 import { DataContext } from "../../data/DataProvider";
 import "../../App.css";
 import samBanner from "../../img/sambanner.jpg";
-// import { useSelector, useDispatch } from "react-redux";
-// import { fetchProductsStart } from "../../redux/products/products-actions";
 import useFilteredProds from "../../custom-hooks/useFilteredProds";
 import OrderBy from "../../custom-hooks/OrderBy";
 import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Samsung = () => {
   const value = useContext(DataContext);
-  const apiData = value.products
+  const apiData = value.products;
   const [filteredProds, setSearch] = useFilteredProds(apiData);
   const samProd = filteredProds.filter((cel) => cel.marca === "Samsung");
   const [sorted, handleOrderBy] = OrderBy(samProd);

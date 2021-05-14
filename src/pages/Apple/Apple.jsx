@@ -8,11 +8,10 @@ import ProductCard from "../../components/ProductsCard/ProductsCard";
 
 const Apple = () => {
   const value = useContext(DataContext);
-  const apiData = value.products
+  const apiData = value.products;
   const [filteredProds, setSearch] = useFilteredProds(apiData);
   const appleProd = filteredProds.filter((cel) => cel.marca === "Apple");
   const [sorted, handleOrderBy] = OrderBy(appleProd);
-
 
   const bannerStyle = {
     background: `url(${appleBanner}) no-repeat`,

@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
 import Modal from "react-modal";
-import { DataContext } from "../../data/DataProvider";
 import { VscClose } from "react-icons/vsc";
 import "../../App.css";
 import StripeCheckout from "react-stripe-checkout";
 import { Link } from "react-router-dom";
+import { clearCart } from "../../redux/cart/cart-actions";
 
-const Checkout = ({ total, product }) => {
-  const value = useContext(DataContext);
-  const [cart] = value.cart;
+const Checkout = ({ total, clearCart }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal() {
     setIsOpen(true);
@@ -16,13 +15,12 @@ const Checkout = ({ total, product }) => {
 
   const handleCheckout = () => {
     openModal();
-    window.localStorage.clear();
+    clearCart();
   };
 
   //Reset cart
   function closeModal() {
     setIsOpen(false);
-    cart.length = 0;
   }
 
   return (
@@ -58,4 +56,8 @@ const Checkout = ({ total, product }) => {
   );
 };
 
-export default Checkout;
+const mapDispatchToProps = (dispatch) => ({
+  clearCart: () => dispatch(clearCart()),
+});
+
+export default connect(null, mapDispatchToProps)(Checkout);

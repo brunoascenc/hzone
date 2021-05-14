@@ -12,8 +12,6 @@ import {
 import ProductsActionTypes from "./products-types";
 
 export function* fetchProductsAsync() {
-  yield console.log("fired");
-
   try {
     const productRef = firestore.collection("collections");
     const snapshot = yield productRef.get();

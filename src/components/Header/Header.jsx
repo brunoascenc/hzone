@@ -1,25 +1,17 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
-import { Link } from "react-router-dom";
-import Dropdown from "../Dropdown/Dropdown";
 import "../../App.css";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IconContext } from "react-icons";
-import { VscMenu, VscClose } from "react-icons/vsc";
-import { IoIosArrowDown } from "react-icons/io";
 import { signOutStart } from "../../redux/user/user-actions";
 import { useSelector } from "react-redux";
-// import { selectCartItems } from "../../redux/cart/cart-selector";
+import Nav from "../Nav/Nav";
 
-const Header = ({ currentUser, signOutStart, cartItems}) => {
-  // const value = useContext(DataContext);
-  // const [cart] = value.cart;
+const Header = ({ currentUser, signOutStart }) => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const cartItem = useSelector((state) => state.cart.cartItems);
-  
+
   //Mobile menu
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -64,79 +56,17 @@ const Header = ({ currentUser, signOutStart, cartItems}) => {
   return (
     <div>
       <header className={sticky.join(" ")}>
-        <nav className="navbar">
-          <Link to="/">
-            <h1>hzone</h1>
-          </Link>
-          <div className="menu-icon" onClick={handleClick}>
-            {click ? <VscClose /> : <VscMenu />}
-          </div>
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <h1 className="hidden-link">hzone</h1>
-            <Link to="/" onClick={closeMobileMenu}>
-              <li className="nav-link">Home</li>
-            </Link>
-            <Link to="/apple" onClick={closeMobileMenu}>
-              <li className="hidden-link">Apple</li>
-            </Link>
-            <Link to="/samsung" onClick={closeMobileMenu}>
-              <li className="hidden-link">Samsung</li>
-            </Link>
-            <Link to="/motorola" onClick={closeMobileMenu}>
-              <li className="hidden-link">Motorola</li>
-            </Link>
-            <Link to="/asus" onClick={closeMobileMenu}>
-              <li className="hidden-link">Asus</li>
-            </Link>
-            <li
-              className="nav-item"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <Link to="/#" className="shop-link">
-                Shop
-                <IconContext.Provider
-                  value={{
-                    style: {
-                      marginLeft: "5px",
-                      marginTop: "2px",
-                      color: "rgb(83, 82, 82)",
-                    },
-                  }}
-                >
-                  <IoIosArrowDown />
-                </IconContext.Provider>
-              </Link>
-              {dropdown && <Dropdown />}
-            </li>
-            <Link to="/contact" onClick={closeMobileMenu}>
-              <li className="nav-link">Contato</li>
-            </Link>
-            {currentUser ? (
-              <Link to="/" onClick={signOutStart}>
-                SIGN OUT
-              </Link>
-            ) : (
-              <Link to="/signin" onClick={closeMobileMenu}>
-                <li className="nav-link">Entrar</li>
-              </Link>
-            )}
-            <div className="cart">
-              <Link to="/cart" onClick={closeMobileMenu}>
-                <IconContext.Provider
-                  value={{
-                    style: { fontSize: "35px" },
-                  }}
-                >
-                  <li>
-                    <AiOutlineShoppingCart />
-                  </li>
-                </IconContext.Provider>
-                <span className="cart-qtd">{cartItem.length}</span>
-              </Link>
-            </div>
-          </ul>
-        </nav>
+        <Nav
+          click={click}
+          dropdown={dropdown}
+          cartItem={cartItem}
+          handleClick={handleClick}
+          closeMobileMenu={closeMobileMenu}
+          signOutStart={signOutStart}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+          currentUser={currentUser}
+        />
       </header>
     </div>
   );
@@ -144,7 +74,6 @@ const Header = ({ currentUser, signOutStart, cartItems}) => {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  // cartItems: selectCartItems
 });
 
 const mapDipatchToProps = (dispatch) => ({
