@@ -3,7 +3,8 @@ import { DataContext } from "../../data/DataProvider";
 import "../../App.css";
 import LandingPage from "../../components/LandingPage/LandingPage";
 import useFilteredProds from "../../custom-hooks/useFilteredProds";
-import ProductCard from "../../components/ProductsCard/ProductsCard";
+// import ProductCard from "../../components/ProductsCard/ProductsCard";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const value = useContext(DataContext);
@@ -39,7 +40,26 @@ const Home = () => {
             </select>
           </div>
         </div>
-        <ProductCard productName={filteredProds} />
+        <div className="card-container">
+          {filteredProds &&
+            filteredProds.map((product) => {
+              return (
+                <div key={product.id} className="card">
+                  <Link to={`/details/${product.id}`}>
+                    <img src={product.imagem} alt={product.titulo} />
+                    <div>
+                      <span>{product.titulo}</span>
+                    </div>
+                  </Link>
+                  <span className="preco">
+                    R$: {product.preco.toFixed(2).toString().replace(".", ",")}{" "}
+                    à vista
+                  </span>
+                  <span className="parcela">ou {product.parcela}</span>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
