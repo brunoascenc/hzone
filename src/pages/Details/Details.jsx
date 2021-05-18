@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart-actions";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-// import ProductDetails from "../../components/ProductDetails/ProductDetails";
 
 const Details = (props) => {
   const value = useContext(DataContext);

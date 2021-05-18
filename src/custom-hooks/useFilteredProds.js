@@ -11,7 +11,6 @@ const useFilteredProds = (apiData) => {
         product.titulo.toLowerCase().includes(search.toLowerCase())
       )
     );
-
   }, [search, apiData]);
 
   useEffect(() => {

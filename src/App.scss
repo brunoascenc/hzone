@@ -355,9 +355,9 @@ header {
   @include mobile {
   }
   .bg-left {
-    background: #ffffff;
-    opacity: 0;
-    height: 0vh;
+    background: #f1324c; 
+    opacity: 1;
+    height: 100vh;
     display: flex;
     align-items: center;
     @include tablet {

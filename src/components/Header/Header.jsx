@@ -8,13 +8,7 @@ import { useSelector } from "react-redux";
 import Nav from "../Nav/Nav";
 
 const Header = ({ currentUser, signOutStart }) => {
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
   const cartItem = useSelector((state) => state.cart.cartItems);
-
-  //Mobile menu
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
 
   //Sticky nav
   const [scrolled, setScrolled] = useState(false);
@@ -37,34 +31,12 @@ const Header = ({ currentUser, signOutStart }) => {
     sticky.push("scrolled");
   }
 
-  const onMouseEnter = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(true);
-    }
-  };
-
-  const onMouseLeave = () => {
-    if (window.innerWidth < 960) {
-      setDropdown(false);
-    } else {
-      setDropdown(false);
-    }
-  };
-
   return (
     <div>
       <header className={sticky.join(" ")}>
         <Nav
-          click={click}
-          dropdown={dropdown}
           cartItem={cartItem}
-          handleClick={handleClick}
-          closeMobileMenu={closeMobileMenu}
           signOutStart={signOutStart}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
           currentUser={currentUser}
         />
       </header>

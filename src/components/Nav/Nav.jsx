@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IconContext } from "react-icons";
 import { VscMenu, VscClose } from "react-icons/vsc";
 import { IoIosArrowDown } from "react-icons/io";
@@ -6,17 +6,28 @@ import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 import CartIcon from "../CartIcon/CartIcon";
 
-const Nav = ({
-  click,
-  dropdown,
-  cartItem,
-  handleClick,
-  closeMobileMenu,
-  signOutStart,
-  onMouseEnter,
-  onMouseLeave,
-  currentUser,
-}) => {
+const Nav = ({ cartItem, signOutStart, currentUser }) => {
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
   return (
     <nav className="navbar">
       <Link to="/">

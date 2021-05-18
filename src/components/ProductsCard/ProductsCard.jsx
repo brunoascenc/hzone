@@ -4,14 +4,15 @@ import "../../App.css";
 import { DataContext } from "../../data/DataProvider";
 import useFilteredProds from "../../custom-hooks/useFilteredProds";
 import OrderBy from "../../custom-hooks/OrderBy";
+import SearchError from "../SearchError/SearchError";
 
 const ProductsCard = () => {
   const value = useContext(DataContext);
   const apiData = value.products;
   const location = useLocation();
-  const [filteredProds, setSearch] = useFilteredProds(apiData);
   const urlPath = location.pathname.substring(1);
   const pageName = urlPath[0].toUpperCase() + urlPath.slice(1).toLowerCase();
+  const [filteredProds, setSearch] = useFilteredProds(apiData);
   const products = filteredProds.filter((cel) => cel.marca === pageName);
   const [sorted, handleOrderBy] = OrderBy(products);
 
@@ -36,25 +37,27 @@ const ProductsCard = () => {
         </div>
       </div>
       <div className="card-container">
-        {location.pathname === ""
-          ? apiData
-          : sorted.map((product) => {
-              return (
-                <div key={product.id} className="card">
-                  <Link to={`/details/${product.id}`}>
-                    <img src={product.imagem} alt={product.titulo} />
-                    <div>
-                      <span>{product.titulo}</span>
-                    </div>
-                  </Link>
-                  <span className="preco">
-                    R$: {product.preco.toFixed(2).toString().replace(".", ",")}{" "}
-                    à vista
-                  </span>
-                  <span className="parcela">ou {product.parcela}</span>
-                </div>
-              );
-            })}
+        {sorted.length === 0 ? (
+          <SearchError />
+        ) : (
+          sorted.map((product) => {
+            return (
+              <div key={product.id} className="card">
+                <Link to={`/details/${product.id}`}>
+                  <img src={product.imagem} alt={product.titulo} />
+                  <div>
+                    <span>{product.titulo}</span>
+                  </div>
+                </Link>
+                <span className="preco">
+                  R$: {product.preco.toFixed(2).toString().replace(".", ",")} à
+                  vista
+                </span>
+                <span className="parcela">ou {product.parcela}</span>
+              </div>
+            );
+          })
+        )}
       </div>
     </>
   );

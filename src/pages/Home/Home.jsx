@@ -3,8 +3,9 @@ import { DataContext } from "../../data/DataProvider";
 import "../../App.css";
 import LandingPage from "../../components/LandingPage/LandingPage";
 import useFilteredProds from "../../custom-hooks/useFilteredProds";
-// import ProductCard from "../../components/ProductsCard/ProductsCard";
 import { Link } from "react-router-dom";
+import SearchError from "../../components/SearchError/SearchError";
+
 
 const Home = () => {
   const value = useContext(DataContext);
@@ -41,7 +42,7 @@ const Home = () => {
           </div>
         </div>
         <div className="card-container">
-          {filteredProds &&
+          {filteredProds.length === 0 ? <SearchError/> :
             filteredProds.map((product) => {
               return (
                 <div key={product.id} className="card">
