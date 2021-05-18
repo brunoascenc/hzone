@@ -79,7 +79,7 @@ const Nav = ({ cartItem, signOutStart, currentUser }) => {
         </Link>
         {currentUser ? (
           <Link to="/" onClick={signOutStart}>
-            SIGN OUT
+            {currentUser.displayName.substr(0,currentUser.displayName.indexOf(" "))}
           </Link>
         ) : (
           <Link to="/signin" onClick={closeMobileMenu}>
