@@ -122,11 +122,18 @@ header .navbar {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 0.7rem;
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 90%;
+}
+
+@media (max-width: 1200px) {
+  header .navbar {
+    width: 95%;
+  }
 }
 
 header .navbar h1 {
-  margin-left: 3rem;
   font-family: "Fugaz One", cursive;
   text-transform: uppercase;
   color: #292828;
@@ -164,6 +171,10 @@ header .navbar ul {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 5px;
 }
 
 @media (max-width: 960px) {
@@ -175,11 +186,11 @@ header .navbar ul {
 }
 
 header .navbar ul li {
-  margin-right: 3rem;
-  font-size: 1.2rem;
+  margin-right: 45px;
+  letter-spacing: 1px;
+  font-size: 1rem;
   text-transform: uppercase;
   color: #535252;
-  width: 100%;
 }
 
 @media (max-width: 960px) {
@@ -197,11 +208,32 @@ header .navbar ul li {
   }
 }
 
+header .navbar ul li span {
+  color: #0e0d0d;
+}
+
+header .navbar ul li .user-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .navbar ul li::last-child {
+  margin-right: 0;
+}
+
 @media (max-width: 375px) {
   header .navbar ul li {
     font-size: 0.8rem;
     padding: 15px 35px;
   }
+}
+
+header .navbar ul .carticon {
+  margin-right: 0;
 }
 
 header .navbar .cart {
@@ -241,7 +273,6 @@ header .menu-icon {
 @media (max-width: 960px) {
   header .menu-icon {
     display: block;
-    margin-right: 3rem;
     font-size: 1.8rem;
     cursor: pointer;
   }
@@ -258,7 +289,7 @@ header .menu-icon {
   display: inherit !important;
   width: 250px;
   position: absolute;
-  top: 8vh;
+  top: 6vh;
   list-style: none;
   text-align: start;
 }
@@ -357,9 +388,9 @@ header .menu-icon {
 }
 
 .landing-page .bg-left {
-  background: #ffffff;
-  opacity: 0;
-  height: 0vh;
+  background: #f1324c;
+  opacity: 1;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -931,8 +962,8 @@ header .menu-icon {
   padding: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  -webkit-box-shadow: 4px 5px 15px  #e0e6e6da;
-          box-shadow: 4px 5px 15px  #e0e6e6da;
+  -webkit-box-shadow: 4px 5px 15px #e0e6e6da;
+          box-shadow: 4px 5px 15px #e0e6e6da;
   -ms-flex-item-align: start;
       align-self: flex-start;
   width: 200px;
@@ -1141,8 +1172,8 @@ header .menu-icon {
   padding: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  -webkit-box-shadow: 4px 5px 15px  #e0e6e6da;
-          box-shadow: 4px 5px 15px  #e0e6e6da;
+  -webkit-box-shadow: 4px 5px 15px #e0e6e6da;
+          box-shadow: 4px 5px 15px #e0e6e6da;
   font-size: 1rem;
   width: 350px;
   display: -webkit-box;
@@ -1626,8 +1657,8 @@ footer .newsletter .email button {
   padding: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  -webkit-box-shadow: 4px 5px 15px  #e0e6e6da;
-          box-shadow: 4px 5px 15px  #e0e6e6da;
+  -webkit-box-shadow: 4px 5px 15px #e0e6e6da;
+          box-shadow: 4px 5px 15px #e0e6e6da;
   padding: 6px;
   margin-top: 5px;
   font-size: 1rem;
@@ -1637,8 +1668,7 @@ footer .newsletter .email button {
   border: none;
   text-transform: capitalize;
   width: 121%;
-  -webkit-box-shadow: 4px 5px 15px #e0e6e6da;
-          box-shadow: 4px 5px 15px #e0e6e6da;
+  box-shadow: 4px 5px 15px #e0e6e6da;
 }
 
 footer .newsletter .email button:focus {
@@ -1758,5 +1788,107 @@ footer .copyright {
 
 .modal-content button a {
   color: #2e2c2c;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+}
+
+.group .form-input {
+  background: none;
+  background-color: white;
+  color: grey;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid grey;
+  margin: 25px 0;
+}
+
+.group .form-input:focus {
+  outline: none;
+}
+
+.group .form-input:focus ~ .form-input-label {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+
+.group input[type="password"] {
+  letter-spacing: 0.3em;
+}
+
+.group .form-input-label {
+  color: grey;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.group .form-input-label.shrink {
+  top: -14px;
+  font-size: 12px;
+  color: black;
+}
+
+.sign-in {
+  width: 380px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.sign-in .title {
+  margin: 10px 0;
+}
+
+.sign-in .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sign-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 380px;
+}
+
+.sign-up .title {
+  margin: 10px 0;
+}
+
+.sign-in-and-sign-up {
+  width: 850px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 30px auto;
+  margin-top: 125px;
 }
 /*# sourceMappingURL=App.css.map */

@@ -12,7 +12,7 @@ const CartIcon = ({ closeMobileMenu, cartItem }) => {
             style: { fontSize: "35px" },
           }}
         >
-          <li>
+          <li className="carticon">
             <AiOutlineShoppingCart />
           </li>
         </IconContext.Provider>

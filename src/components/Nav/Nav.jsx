@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Dropdown from "../Dropdown/Dropdown";
 import CartIcon from "../CartIcon/CartIcon";
+// import { FiLogIn } from "react-icons/fi";
 
 const Nav = ({ cartItem, signOutStart, currentUser }) => {
   const [click, setClick] = useState(false);
@@ -79,11 +80,25 @@ const Nav = ({ cartItem, signOutStart, currentUser }) => {
         </Link>
         {currentUser ? (
           <Link to="/" onClick={signOutStart}>
-            {currentUser.displayName.substr(0,currentUser.displayName.indexOf(" "))}
+            <li className="nav-link">
+              <span>
+              Olá, {currentUser.displayName.substr(0,currentUser.displayName.indexOf(" "))}
+              </span>
+              <br />
+              Sair
+            </li>
           </Link>
         ) : (
           <Link to="/signin" onClick={closeMobileMenu}>
-            <li className="nav-link">Entrar</li>
+            <li className="nav-link">
+              <div className="user-link">
+                <p>
+                  <span>Olá, visitante</span>
+                  <br />
+                  Entrar
+                </p>
+              </div>
+            </li>
           </Link>
         )}
         <CartIcon closeMobileMenu={closeMobileMenu} cartItem={cartItem} />

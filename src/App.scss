@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Fjalla+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap");
+@import "./styles/mixins";
+@import "./styles/variables";
 
 * {
   margin: 0;
@@ -21,90 +23,6 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
-
-//Vars
-$small-desktop: 1200px;
-$xs-desktop: 960px;
-$tablet: 767px;
-$mobile: 575px;
-$xs-mobile: 375px;
-$main-red: #f1324c;
-$logo: "Fugaz One", cursive;
-
-//Media queries
-@mixin small-desktop {
-  @media (max-width: #{$small-desktop}) {
-    @content;
-  }
-}
-
-@mixin xs-desktop {
-  @media (max-width: #{$xs-desktop}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (max-width: #{$tablet}) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media (max-width: #{$mobile}) {
-    @content;
-  }
-}
-
-@mixin xs-mobile {
-  @media (max-width: #{$xs-mobile}) {
-    @content;
-  }
-}
-
-//Mixins
-@mixin btnReset {
-  cursor: pointer;
-  background-color: rgb(13, 156, 212);
-  border: none;
-  outline: none;
-  color: #f8f8f8;
-}
-
-@mixin linksReset {
-  list-style: none;
-  text-decoration: none;
-  color: rgb(59, 59, 59);
-}
-
-@mixin columnCenter {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-@mixin btn {
-  cursor: pointer;
-  background-color: #171818;
-  border: none;
-  border: solid 1px #171818;
-  width: 100%;
-  border-radius: 6rem;
-  font-size: 1.2rem;
-  color: #f05065;
-  padding: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  box-shadow: 4px 5px 15px #e0e6e6da;
-  &:focus {
-    outline: none;
-  }
-}
-
-@mixin flexColumn {
-  display: flex;
-  flex-direction: column;
 }
 
 /*-------Header--------*/
@@ -131,6 +49,7 @@ header {
   @include xs-desktop {
     top: 0;
   }
+
 
   @include mobile {
     height: 75px;
@@ -177,9 +96,15 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.7rem;
+    // margin-top: 0.7rem;
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 90%;
+    @include small-desktop {
+      width: 95%;
+    }
     h1 {
-      margin-left: 3rem;
+      // margin-left: 3rem;
       font-family: "Fugaz One", cursive;
       text-transform: uppercase;
       color: rgb(41, 40, 40);
@@ -207,16 +132,23 @@ header {
     ul {
       display: flex;
       list-style: none;
+      justify-content: space-between;
+      // align-items: center;
+      // background: blue;
+      // width: 40%;
+      padding-top: 5px;
       @include xs-desktop {
         justify-content: center;
       }
 
+
       li {
-        margin-right: 3rem;
-        font-size: 1.2rem;
+        margin-right: 45px;
+        letter-spacing: 1px;
+        font-size: 1rem;
         text-transform: uppercase;
         color: rgb(83, 82, 82);
-        width: 100%;
+        // width: 100%;
         @include xs-desktop {
           color: rgb(228, 217, 217);
           font-size: 1.3rem;
@@ -229,15 +161,35 @@ header {
           }
         }
 
+        span{
+          color: rgb(14, 13, 13);
+        }
+
+        .user-link{
+          display: flex;
+          align-items: center;
+          // p{
+          //   margin-left: 7px;
+          // }
+        }
+
+        &::last-child{
+          margin-right: 0;
+        }
+
         @include xs-mobile {
           font-size: 0.8rem;
           padding: 15px 35px;
         }
       }
+      .carticon{
+        margin-right: 0;
+      }
     }
 
     .cart {
       position: relative;
+      // margin-right:  0;
       .cart-qtd {
         display: flex;
         justify-content: center;
@@ -266,7 +218,7 @@ header {
   .menu-icon {
     @include xs-desktop {
       display: block;
-      margin-right: 3rem;
+      // margin-right: 3rem;
       font-size: 1.8rem;
       cursor: pointer;
     }
@@ -282,7 +234,7 @@ header {
   display: inherit !important;
   width: 250px;
   position: absolute;
-  top: 8vh;
+  top: 6vh;
   list-style: none;
   text-align: start;
   @include xs-desktop {
@@ -355,7 +307,7 @@ header {
   @include mobile {
   }
   .bg-left {
-    background: #f1324c; 
+    background: #f1324c;
     opacity: 1;
     height: 100vh;
     display: flex;
@@ -1334,7 +1286,7 @@ $main-color: black;
   }
 }
 
-.sign-in-and-sign-up{
+.sign-in-and-sign-up {
   width: 850px;
   display: flex;
   justify-content: space-between;

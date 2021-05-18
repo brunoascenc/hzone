@@ -1,0 +1,74 @@
+//Media queries
+@mixin small-desktop {
+  @media (max-width: #{$small-desktop}) {
+    @content;
+  }
+}
+
+@mixin xs-desktop {
+  @media (max-width: #{$xs-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin xs-mobile {
+  @media (max-width: #{$xs-mobile}) {
+    @content;
+  }
+}
+
+//Mixins
+@mixin btnReset {
+  cursor: pointer;
+  background-color: rgb(13, 156, 212);
+  border: none;
+  outline: none;
+  color: #f8f8f8;
+}
+
+@mixin linksReset {
+  list-style: none;
+  text-decoration: none;
+  color: rgb(59, 59, 59);
+}
+
+@mixin columnCenter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin btn {
+  cursor: pointer;
+  background-color: #171818;
+  border: none;
+  border: solid 1px #171818;
+  width: 100%;
+  border-radius: 6rem;
+  font-size: 1.2rem;
+  color: #f05065;
+  padding: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 4px 5px 15px #e0e6e6da;
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
