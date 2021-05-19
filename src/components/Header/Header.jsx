@@ -6,9 +6,13 @@ import "../../App.css";
 import { signOutStart } from "../../redux/user/user-actions";
 import { useSelector } from "react-redux";
 import Nav from "../Nav/Nav";
+import SubHeader from "../SubHeader/SubHeader";
+import { useLocation } from "react-router";
 
 const Header = ({ currentUser, signOutStart }) => {
   const cartItem = useSelector((state) => state.cart.cartItems);
+  const location = useLocation();
+  const pathname = location.pathname
 
   //Sticky nav
   const [scrolled, setScrolled] = useState(false);
@@ -33,6 +37,7 @@ const Header = ({ currentUser, signOutStart }) => {
 
   return (
     <div>
+      {pathname === "/" ? <SubHeader/> : ""}
       <header className={sticky.join(" ")}>
         <Nav
           cartItem={cartItem}
