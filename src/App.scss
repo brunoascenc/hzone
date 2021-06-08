@@ -100,13 +100,13 @@ a {
 }
 
 header {
-  // position: fixed;
-  // position: sticky;
+  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   opacity: 1;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
   height: 90px;
   transition: 0.3s ease;
   @include xs-desktop {
@@ -1438,4 +1438,7 @@ $main-color: black;
   margin-top: 125px;
 }
 
-//
+//pages header margin
+.product-page{
+  margin-top: -5rem;
+}
