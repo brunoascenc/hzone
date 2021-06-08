@@ -5,6 +5,7 @@ import { IconContext } from "react-icons";
 import banner from "../../img/iphones.png";
 // import { TweenMax, Power3 } from "gsap";
 import { Link } from "react-scroll";
+import Slider from "../Slider/Slider";
 
 const LandingPage = () => {
   // let landingImg,
@@ -57,7 +58,8 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      <div className="bg-left">
+      <Slider/>
+      {/* <div className="bg-left">
         <div className="landing-txt">
           <h2>
             Iphone <span>11</span>
@@ -97,7 +99,7 @@ const LandingPage = () => {
       </div>
       <div className="landing-img">
         <img src={banner} alt="iphones" />
-      </div>
+      </div> */}
       {/* <div className="loader">
         <h1>hzone</h1>
       </div> */}

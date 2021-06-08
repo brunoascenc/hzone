@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="home">
       <LandingPage />
-      <div className="home-content" id="xd">
+      <div className="home-content">
         <div className="products-header">
           <h1>Mais Vendidos</h1>
         </div>
