@@ -66,10 +66,14 @@ const Cart = ({ totalPrice, clearItem, decrementItem, incrementItem }) => {
         )}
       </div>
 
-      <div className="total-price">
-        <h3>Total: R$: {fixedTotalPrice}</h3>
-        <Checkout product={cartItem} total={fixedTotalPrice} />
-      </div>
+      {cartItem.length === 0 ? (
+        ""
+      ) : (
+        <div className="total-price">
+          <h3>Total: R$: {fixedTotalPrice}</h3>
+          <Checkout product={cartItem} total={fixedTotalPrice} />
+        </div>
+      )}
     </div>
   );
 };

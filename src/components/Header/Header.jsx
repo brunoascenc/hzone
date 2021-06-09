@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectCurrentUser } from "../../redux/user/user-selector";
@@ -12,14 +12,14 @@ import { useLocation } from "react-router";
 const Header = ({ currentUser, signOutStart }) => {
   const cartItem = useSelector((state) => state.cart.cartItems);
   const location = useLocation();
-  const pathname = location.pathname
+  const pathname = location.pathname;
 
   //Sticky nav
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 10) {
+    if (offset > 0) {
       setScrolled(true);
     } else {
       setScrolled(false);
@@ -37,14 +37,16 @@ const Header = ({ currentUser, signOutStart }) => {
 
   return (
     <div>
-      {pathname === "/" ? <SubHeader/> : ""}
-      <header className={sticky.join(" ")}>
-        <Nav
-          cartItem={cartItem}
-          signOutStart={signOutStart}
-          currentUser={currentUser}
-        />
-      </header>
+      {pathname === "/" ? <SubHeader /> : ""}
+      <div className="header-wrapper">
+        <header className={sticky.join(" ")}>
+          <Nav
+            cartItem={cartItem}
+            signOutStart={signOutStart}
+            currentUser={currentUser}
+          />
+        </header>
+      </div>
     </div>
   );
 };
