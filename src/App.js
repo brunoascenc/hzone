@@ -38,7 +38,7 @@ const App = ({ checkUserSession, currentUser }) => {
       <Router>
         <ScrollToTop>
           <div className="App">
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<Spinner delay={2000}/>}>
               <Header />
               <Switch>
                 <Route path="/" exact component={Home} />

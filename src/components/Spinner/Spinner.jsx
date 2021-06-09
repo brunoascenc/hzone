@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
-const Spinner = () => {
-    return (
-        <div>
-            <h1>loading</h1>
-        </div>
-    )
-}
+const Loading = () => (
+  <div className="spinner">
+    <div className="spinner-container">
+      <div className="spinner-overlay"></div>
+    </div>
+  </div>
+);
 
-export default Spinner
+const Spinner = (delay) => {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    setTimeout(() => setReady(true), delay);
+  }, []);
+  return ready && <Loading />;
+};
+
+export default Spinner;

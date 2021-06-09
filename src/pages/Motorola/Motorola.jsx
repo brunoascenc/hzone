@@ -12,7 +12,9 @@ const Motorola = () => {
 
   return (
     <div className="product-page">
-      <div className="banner" style={bannerStyle}></div>
+      <div className="banner" style={bannerStyle}>
+        
+      </div>
       <ProductCard />
     </div>
   );

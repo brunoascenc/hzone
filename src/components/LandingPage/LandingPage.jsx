@@ -1,10 +1,10 @@
 import React from "react";
 import "../../App.css";
-import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import banner from "../../img/iphones.png";
+// import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
+// import { IconContext } from "react-icons";
+// import banner from "../../img/iphones.png";
 // import { TweenMax, Power3 } from "gsap";
-import { Link } from "react-scroll";
+// import { Link } from "react-scroll";
 import Slider from "../Slider/Slider";
 
 const LandingPage = () => {
