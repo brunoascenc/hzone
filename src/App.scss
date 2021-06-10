@@ -44,10 +44,16 @@ a {
   z-index: 100;
   box-shadow: 0px 5px 15px rgba(95, 93, 93, 0.178);
   padding-bottom: 105px;
+  @include xs-desktop {
+    padding-bottom: 98px;
+  }
 }
 
 .sub-header {
   background-color: $main-red;
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
   ul {
     display: flex;
     align-items: center;
@@ -68,16 +74,13 @@ a {
         width: 1px;
         height: 17px;
         position: absolute;
-        right: -200px;
+        right: -100px;
         background-color: rgba(245, 240, 240, 0.8);
         @media screen and (max-width: 1150px) {
           right: -65px;
         }
         @include xs-desktop {
           right: -50px;
-        }
-        @media screen and (max-width: 900px) {
-          display: none;
         }
       }
 
@@ -114,6 +117,9 @@ header {
   height: 90px;
   @include xs-desktop {
     top: 0;
+  }
+  @include xs-desktop {
+    padding-top: 12px;
   }
 
   @include mobile {
@@ -165,6 +171,14 @@ header {
     margin: 0 auto;
     padding-top: 15px;
     width: 90%;
+
+    .nav-link {
+      span {
+        @include xs-desktop {
+          color: rgb(228, 217, 217);
+        }
+      }
+    }
     @include small-desktop {
       width: 95%;
     }
@@ -176,8 +190,8 @@ header {
       font-size: 2.3rem;
       margin-top: 10px;
       @include mobile {
-        margin-left: 2rem;
-        font-size: 1.6rem;
+        margin-left: 1rem;
+        font-size: 2rem;
       }
     }
 
@@ -292,6 +306,7 @@ header {
       display: block;
       // margin-right: 3rem;
       font-size: 1.8rem;
+      margin-top: 17px;
       cursor: pointer;
     }
 
@@ -390,6 +405,10 @@ header {
       left: 20px;
       top: 50%;
       cursor: pointer;
+      @include tablet {
+        left: 1px;
+        font-size: 45px;
+      }
     }
 
     .right-arrow {
@@ -400,6 +419,10 @@ header {
       right: 20px;
       top: 50%;
       cursor: pointer;
+      @include tablet {
+        right: 1px;
+        font-size: 45px;
+      }
     }
   }
 
@@ -407,6 +430,14 @@ header {
     width: 100vw;
     height: 500px;
     margin-top: 20px;
+
+    @include tablet {
+      height: 350px;
+    }
+
+    @include mobile {
+      height: 290px;
+    }
 
     .swiper-pagination-bullet {
       background-color: rgb(232, 232, 243);
@@ -423,6 +454,9 @@ header {
 
       div {
         margin-left: 65px;
+        @include tablet {
+          margin-left: 30px;
+        }
       }
       h2 {
         text-transform: uppercase;
@@ -430,175 +464,24 @@ header {
         letter-spacing: 2px;
         font-size: 35px;
         margin-bottom: 15px;
+        @include tablet {
+          font-size: 20px;
+        }
       }
 
       a {
-        // background: $main-red;
+        background: $main-red;
         color: #ffffff;
         padding: 12px;
-        border-radius: 2px;
+        border-radius: 4px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        border-bottom: solid 2px $main-red;
+        @include tablet {
+          font-size: 12px;
+        }
       }
     }
-    // div{
-    //   background-position: center;
-    //   background-image: linear-gradient(rgba(31, 28, 28, 0.329),rgba(14, 14, 13, 0.89));
-    // }
-    // img{
-    //   width: 100vw;
-    // }
   }
-
-  // @include mobile {
-  // }
-  // .bg-left {
-  //   // background: #f1324c;
-  //   opacity: 1;
-  //   height: 100vh;
-  //   display: flex;
-  //   align-items: center;
-  //   @include tablet {
-  //     align-items: flex-end;
-  //   }
-
-  //   .landing-txt {
-  //     @include flexColumn();
-  //     align-items: flex-start;
-  //     margin-left: 3rem;
-  //     opacity: 1;
-  //     letter-spacing: 1px;
-  //     font-weight: bold;
-  //     color: rgba(22, 22, 22, 0.76);
-  //     @include tablet {
-  //       margin-bottom: 2rem;
-  //     }
-
-  //     @include mobile {
-  //       margin-left: 2rem;
-  //     }
-
-  //     h2 {
-  //       text-transform: uppercase;
-  //       font-family: "Fjalla One", sans-serif;
-  //       font-size: 4rem;
-  //       letter-spacing: 5px;
-  //       font-weight: bold;
-  //       align-self: flex-start;
-  //       @include small-desktop {
-  //         font-size: 2.5rem;
-  //         align-self: flex-start;
-  //       }
-  //       @include xs-desktop {
-  //         font-size: 2rem;
-  //       }
-  //       @include mobile {
-  //         font-size: 1rem;
-  //         letter-spacing: 4px;
-  //       }
-  //     }
-
-  //     span {
-  //       color: rgba(22, 22, 22, 0.76);
-  //     }
-
-  //     button {
-  //       cursor: pointer;
-  //       background: #f3eeee;
-  //       background-color: #171818;
-  //       border: none;
-  //       border: solid 1px #171818;
-  //       width: 290px;
-  //       border-radius: 6rem;
-  //       font-size: 1.2rem;
-  //       color: #f05065;
-  //       padding: 0.7rem;
-  //       text-transform: uppercase;
-  //       letter-spacing: 2px;
-  //       box-shadow: 4px 5px 15px rgba(12, 12, 12, 0.63);
-  //       @include small-desktop {
-  //         font-size: 1rem;
-  //         align-self: flex-start;
-  //         width: 200px;
-  //       }
-
-  //       @include xs-desktop {
-  //         width: 170px;
-  //       }
-
-  //       @include mobile {
-  //         font-size: 0.6rem;
-  //         padding: 8px;
-  //         width: 100px;
-  //       }
-
-  //       &:focus {
-  //         outline: none;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .bg-right {
-  //   position: relative;
-  //   background: #ffffff;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: flex-end;
-  //   @include tablet {
-  //     align-items: flex-end;
-  //   }
-  //   .socials {
-  //     margin-right: 3rem;
-
-  //     @include mobile {
-  //       margin-right: 2rem;
-  //     }
-
-  //     ul {
-  //       @include tablet {
-  //         display: flex;
-  //         margin-bottom: 2rem;
-  //       }
-  //       list-style: none;
-  //       li {
-  //         cursor: pointer;
-  //         margin-top: 1rem;
-  //         color: #242222;
-  //         @include tablet {
-  //           margin-left: 1rem;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .landing-img {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   display: flex;
-  //   pointer-events: none;
-  //   align-items: center;
-  //   justify-content: center;
-  //   margin: auto;
-  //   img {
-  //     max-height: 100%;
-  //     opacity: 1;
-  //     max-width: 57%;
-  //     @include tablet {
-  //       max-width: 80%;
-  //     }
-  //     @include mobile {
-  //       max-width: 100%;
-  //     }
-  //   }
-  // }
-
-  // .more-btn {
-  //   font-size: 2.5rem;
-  // }
 }
 
 /*-------Filters--------*/
@@ -1175,8 +1058,8 @@ header {
       letter-spacing: 2px;
       width: 200px;
       padding: 1rem;
-      border-radius: 6rem;
-      box-shadow: 4px 5px 15px rgba(12, 12, 12, 0.63);
+      border-radius: 4px;
+      box-shadow: 4px 5px 15px rgba(116, 113, 113, 0.63);
       &:focus {
         outline: 0;
       }
@@ -1293,7 +1176,6 @@ footer {
   opacity: 0;
 }
 
-
 .modal {
   width: 565px;
   height: 250px;
@@ -1400,34 +1282,33 @@ $main-color: black;
       background-color: rgb(253, 251, 251);
     }
 
-  //   &:focus {
-  //     outline: none;
-  //   }
+    //   &:focus {
+    //     outline: none;
+    //   }
 
-  //   &:focus ~ .form-input-label {
-  //     @include shrinkLabel();
-  //   }
-  // }
+    //   &:focus ~ .form-input-label {
+    //     @include shrinkLabel();
+    //   }
+    // }
 
-  // input[type="password"] {
-  //   letter-spacing: 0.3em;
-  // }
+    // input[type="password"] {
+    //   letter-spacing: 0.3em;
+    // }
 
-  // .form-input-label {
-  //   color: $sub-color;
-  //   font-size: 16px;
-  //   font-weight: normal;
-  //   position: absolute;
-  //   pointer-events: none;
-  //   left: 5px;
-  //   top: 10px;
-  //   transition: 300ms ease all;
+    // .form-input-label {
+    //   color: $sub-color;
+    //   font-size: 16px;
+    //   font-weight: normal;
+    //   position: absolute;
+    //   pointer-events: none;
+    //   left: 5px;
+    //   top: 10px;
+    //   transition: 300ms ease all;
 
-  //   &.shrink {
-  //     @include shrinkLabel();
-  //   }
+    //   &.shrink {
+    //     @include shrinkLabel();
+    //   }
   }
- 
 }
 
 //signin
@@ -1436,10 +1317,10 @@ $main-color: black;
   display: flex;
   flex-direction: column;
 
-  h2{
+  h2 {
     color: rgb(20, 20, 20);
   }
-  span{
+  span {
     color: rgb(145, 131, 131);
     margin-top: 5px;
   }
@@ -1447,7 +1328,7 @@ $main-color: black;
   .buttons {
     display: flex;
     justify-content: space-between;
-    button{
+    button {
       @include btnReset();
       background-color: $main-red;
       padding: 6px;
@@ -1459,8 +1340,8 @@ $main-color: black;
       color: rgb(248, 242, 242);
     }
 
-    .google-btn{
-      background-color: #4285F4;
+    .google-btn {
+      background-color: #4285f4;
       width: 190px;
     }
   }
@@ -1472,7 +1353,7 @@ $main-color: black;
   flex-direction: column;
   width: 380px;
 
-  .modal{
+  .modal {
     width: 200px;
   }
 
@@ -1480,24 +1361,24 @@ $main-color: black;
     margin: 10px 0;
   }
 
-  h2{
+  h2 {
     color: rgb(20, 20, 20);
   }
-  span{
+  span {
     color: rgb(145, 131, 131);
     margin-top: 5px;
   }
 
-  button{
+  button {
     @include btnReset();
-      background-color: $main-red;
-      padding: 16px;
-      margin-top: -15px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: bold;
-      color: rgb(248, 242, 242);
+    background-color: $main-red;
+    padding: 16px;
+    margin-top: -15px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: rgb(248, 242, 242);
   }
 }
 

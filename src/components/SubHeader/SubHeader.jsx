@@ -1,7 +1,7 @@
 import React from "react";
 import { AiOutlineLock, AiOutlineCreditCard } from "react-icons/ai";
 import { MdLocalShipping } from "react-icons/md";
-// import '../../App.css'
+import { FaExchangeAlt } from "react-icons/fa";
 
 const SubHeader = () => {
   return (
@@ -10,6 +10,9 @@ const SubHeader = () => {
         <ul>
           <li>
             <AiOutlineLock /> <p>Compra 100% segura</p>
+          </li>
+          <li>
+            <FaExchangeAlt/> <p>1ª troca grátis</p>
           </li>
           <li>
             <AiOutlineCreditCard /> <p>12x sem juros</p>
