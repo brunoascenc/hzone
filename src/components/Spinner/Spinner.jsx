@@ -12,7 +12,7 @@ const Spinner = (delay) => {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     setTimeout(() => setReady(true), delay);
-  }, []);
+  }, [delay]);
   return ready && <Loading />;
 };
 

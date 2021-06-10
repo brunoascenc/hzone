@@ -7,14 +7,16 @@ import {
   emailSignInStart,
 } from "../../redux/user/user-actions";
 
-const SignIn = ({ emailSignInStart, googleSignInStart }) => {
+const SignIn = ({ emailSignInStart, googleSignInStart, signInFailure }) => {
   const [userCredentials, setCredentials] = useState({
     email: "",
     password: "",
   });
+
   const { email, password } = userCredentials;
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     emailSignInStart(email, password);
   };
 
@@ -26,36 +28,36 @@ const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
   return (
     <div className="sign-in">
-      <h2>I already have an account</h2>
-      <span>Sign in with your email and password</span>
+      <h2>Eu já tenho uma conta</h2>
+      <span>Entre com o seu email e senha</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
           name="email"
           handleChange={handleChange}
           type="email"
-          label="email"
+          placeholder="email"
           value={email}
           required
         />
         <FormInput
           name="password"
           type="password"
-          label="password"
+          placeholder="senha"
           value={password}
           handleChange={handleChange}
           required
         />
 
         <div className="buttons">
-          <button type="submit">Sign in</button>
+          <button type="submit">Entrar</button>
           <button
             type="button"
             onClick={googleSignInStart}
+            className="google-btn"
           >
-            Sign in with google
+            Entrar com o google
           </button>
-
         </div>
       </form>
     </div>

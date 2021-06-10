@@ -945,8 +945,12 @@ header {
       button {
         cursor: pointer;
         @include btn();
+        background: $main-red;
+        color: #f1e8e8;
+        border: none;
         font-size: 1rem;
-        width: 350px;
+        border-radius: 4px;
+        width: 310px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -964,7 +968,7 @@ header {
         @include mobile {
           width: 100%;
           padding: 12px;
-          font-size: 0.6rem;
+          font-size: 0.8rem;
           text-align: center;
           margin: 0 auto;
         }
@@ -1289,12 +1293,12 @@ footer {
   opacity: 0;
 }
 
+
 .modal {
-  width: 60%;
+  width: 565px;
   height: 250px;
   position: absolute;
-  padding: 2rem;
-  border-radius: 2rem;
+  border-radius: 4px;
   font-family: "Fjalla One", sans-serif;
   text-transform: uppercase;
   top: 50%;
@@ -1303,11 +1307,13 @@ footer {
   right: auto;
   bottom: auto;
   margin-right: -50%;
-  transition: 5s ease-in-out;
   transform: translate(-50%, -50%);
   border: solid 1px rgb(230, 221, 221);
-  background: rgb(221, 213, 213);
+  background: rgb(238, 233, 233);
   color: rgb(43, 41, 41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @include tablet {
     width: 85%;
   }
@@ -1321,11 +1327,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
   h1 {
     letter-spacing: 2px;
     justify-self: center;
-    margin-top: 15px;
-    margin-bottom: 5px;
     text-align: center;
     @include tablet {
       font-size: 1.3rem;
@@ -1335,6 +1343,9 @@ footer {
 
   button {
     align-self: flex-start;
+    position: absolute;
+    top: 10px;
+    left: 10px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -1364,45 +1375,59 @@ $main-color: black;
   margin: 45px 0;
 
   .form-input {
-    background: none;
-    background-color: white;
-    color: $sub-color;
-    font-size: 18px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    width: 100%;
+    // background: none;
+    // background-color: white;
+    // // color: $sub-color;
+    // font-size: 18px;
+    // padding: 10px 10px 10px 5px;
+    // display: block;
+    // width: 100%;
+    // border: none;
+    // border-radius: 0;
+    // // border-bottom: 1px solid $sub-color;
+    // margin: 25px 0;
+    padding: 8px;
+    height: 45px;
     border: none;
-    border-radius: 0;
-    border-bottom: 1px solid $sub-color;
-    margin: 25px 0;
-
+    outline: none;
+    border-radius: 2px;
+    border: solid 2px rgb(226, 216, 216);
+    background: transparent;
+    width: 100%;
+    transition: 0.1s ease-in;
     &:focus {
-      outline: none;
+      border: 2px solid $main-red;
+      background-color: rgb(253, 251, 251);
     }
 
-    &:focus ~ .form-input-label {
-      @include shrinkLabel();
-    }
-  }
+  //   &:focus {
+  //     outline: none;
+  //   }
 
-  input[type="password"] {
-    letter-spacing: 0.3em;
-  }
+  //   &:focus ~ .form-input-label {
+  //     @include shrinkLabel();
+  //   }
+  // }
 
-  .form-input-label {
-    color: $sub-color;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 300ms ease all;
+  // input[type="password"] {
+  //   letter-spacing: 0.3em;
+  // }
 
-    &.shrink {
-      @include shrinkLabel();
-    }
+  // .form-input-label {
+  //   color: $sub-color;
+  //   font-size: 16px;
+  //   font-weight: normal;
+  //   position: absolute;
+  //   pointer-events: none;
+  //   left: 5px;
+  //   top: 10px;
+  //   transition: 300ms ease all;
+
+  //   &.shrink {
+  //     @include shrinkLabel();
+  //   }
   }
+ 
 }
 
 //signin
@@ -1411,13 +1436,33 @@ $main-color: black;
   display: flex;
   flex-direction: column;
 
-  .title {
-    margin: 10px 0;
+  h2{
+    color: rgb(20, 20, 20);
+  }
+  span{
+    color: rgb(145, 131, 131);
+    margin-top: 5px;
   }
 
   .buttons {
     display: flex;
     justify-content: space-between;
+    button{
+      @include btnReset();
+      background-color: $main-red;
+      padding: 6px;
+      width: 100px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: rgb(248, 242, 242);
+    }
+
+    .google-btn{
+      background-color: #4285F4;
+      width: 190px;
+    }
   }
 }
 
@@ -1427,8 +1472,32 @@ $main-color: black;
   flex-direction: column;
   width: 380px;
 
+  .modal{
+    width: 200px;
+  }
+
   .title {
     margin: 10px 0;
+  }
+
+  h2{
+    color: rgb(20, 20, 20);
+  }
+  span{
+    color: rgb(145, 131, 131);
+    margin-top: 5px;
+  }
+
+  button{
+    @include btnReset();
+      background-color: $main-red;
+      padding: 16px;
+      margin-top: -15px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: rgb(248, 242, 242);
   }
 }
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../../App.scss";
 import { connect } from "react-redux";
+import Modal from "react-modal";
+import { VscClose } from "react-icons/vsc";
 import FormInput from "../Form-Input/Form-Input";
 import { signUpStart } from "../../redux/user/user-actions";
 
@@ -12,13 +14,25 @@ const SignUp = ({ signUpStart }) => {
     confirmPassword: "",
   });
 
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+
   const { displayName, email, password, confirmPassword } = userCredentials;
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords dont match");
+      openModal();
       return;
     }
 
@@ -33,15 +47,28 @@ const SignUp = ({ signUpStart }) => {
 
   return (
     <div className="sign-up">
-      <h2 className="title">I do not have a account</h2>
-      <span>Sign up with your email and password</span>
+      <Modal
+        closeTimeoutMS={200}
+        className="modal"
+        isOpen={modalIsOpen}
+        ariaHideApp={false}
+      >
+        <div className="modal-content signup-modal">
+        <button onClick={closeModal}>
+              <VscClose />    
+      </button>
+          <h1>As senhas devem ser iguais</h1>
+        </div>
+      </Modal>
+      <h2>Eu não tenho uma conta</h2>
+      <span>Cadastre-se com seu email e senha</span>
       <form onSubmit={handleSubmit} className="sign-up-form">
         <FormInput
           type="text"
           name="displayName"
           value={displayName}
           onChange={handleChange}
-          label="Display Name"
+          placeholder="Seu Nome"
           required
         ></FormInput>
 
@@ -50,7 +77,7 @@ const SignUp = ({ signUpStart }) => {
           name="email"
           value={email}
           onChange={handleChange}
-          label="Display Email"
+          placeholder="Seu Email"
           required
         ></FormInput>
 
@@ -59,7 +86,7 @@ const SignUp = ({ signUpStart }) => {
           name="password"
           value={password}
           onChange={handleChange}
-          label="password"
+          placeholder="Senha"
           required
         ></FormInput>
 
@@ -68,11 +95,11 @@ const SignUp = ({ signUpStart }) => {
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleChange}
-          label="Confirm Password"
+          placeholder="Confirmar Senha"
           required
         ></FormInput>
 
-        <button type="submit"> SIGN UP </button>
+        <button type="submit"> Cadastrar </button>
       </form>
     </div>
   );
