@@ -83,6 +83,12 @@ a {
       flex-wrap: wrap;
 }
 
+@media screen and (min-width: 1395px) {
+  .sub-header ul {
+    width: 1255px;
+  }
+}
+
 .sub-header ul li {
   position: relative;
   display: -webkit-box;
@@ -226,6 +232,24 @@ header .navbar {
   margin: 0 auto;
   padding-top: 15px;
   width: 90%;
+}
+
+@media (max-width: 960px) {
+  header .navbar {
+    padding: 15px 30px 0 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  header .navbar {
+    padding: 15px 5px 0 5px;
+  }
+}
+
+@media screen and (min-width: 1395px) {
+  header .navbar {
+    width: 1251px;
+  }
 }
 
 @media (max-width: 960px) {
@@ -536,6 +560,16 @@ header .menu-icon {
   width: 100vw;
   height: 500px;
   margin-top: 20px;
+}
+
+@media screen and (min-width: 1565px) {
+  .landing-page .slider {
+    width: 1565px;
+  }
+}
+
+.landing-page .slider img {
+  width: 10px;
 }
 
 @media (max-width: 767px) {
@@ -1523,20 +1557,31 @@ header .menu-icon {
 }
 
 /*------Footer-------*/
-footer {
+.footer-container {
+  width: 100%;
+  background: #eee7e7;
   padding: 0 10%;
+}
+
+footer {
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border-top: solid 1px #ece6e6;
-  background: #eee7e7;
   margin-top: 10rem;
   height: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media screen and (min-width: 1395px) {
+  footer {
+    width: 1200px;
+  }
 }
 
 @media (max-width: 575px) {

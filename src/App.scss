@@ -64,6 +64,9 @@ a {
     width: 100%;
     margin: 0 auto;
     flex-wrap: wrap;
+    @media screen and (min-width: 1395px) {
+      width: 1255px;
+    }
 
     li {
       position: relative;
@@ -171,6 +174,17 @@ header {
     margin: 0 auto;
     padding-top: 15px;
     width: 90%;
+    @include xs-desktop {
+      padding: 15px 30px 0 30px;
+    }
+
+    @include mobile {
+      padding: 15px 5px 0 5px;
+    }
+
+    @media screen and (min-width: 1395px) {
+      width: 1251px;
+    }
 
     .nav-link {
       span {
@@ -430,6 +444,12 @@ header {
     width: 100vw;
     height: 500px;
     margin-top: 20px;
+    @media screen and (min-width: 1565px) {
+      width: 1565px;
+    }
+    img{
+      width: 10px;
+    }
 
     @include tablet {
       height: 350px;
@@ -1068,15 +1088,23 @@ header {
 }
 
 /*------Footer-------*/
-footer {
+.footer-container{
+  width: 100%;
+  background: #eee7e7;
   padding: 0 10%;
+}
+footer {
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   border-top: solid 1px rgb(236, 230, 230);
-  background: #eee7e7;
   margin-top: 10rem;
   height: 100%;
   justify-content: space-between;
+  @media screen and (min-width: 1395px) {
+    width: 1200px;
+  }
+
   @include mobile {
     display: grid;
     grid-template-columns: repeat(1, 1fr);

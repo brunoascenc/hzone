@@ -29,7 +29,7 @@ const Slider = () => {
           style={{
             background: `linear-gradient(rgba(31, 28, 28, 0.329),rgba(14, 14, 13, 0.89)), url(
               "https://images.unsplash.com/photo-1551764046-eadb20826deb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80"
-            ) center no-repeat`,
+            )100% center no-repeat`,
           }}
         >
           <div className="container">
