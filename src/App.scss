@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Fugaz+One&family=Fjalla+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap");
-@import "./styles/mixins";
-@import "./styles/variables";
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import './styles/mixins';
+@import './styles/variables';
 
 * {
   margin: 0;
@@ -21,7 +21,7 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 select,
@@ -73,7 +73,7 @@ a {
       display: flex;
       align-items: center;
       &:after {
-        content: "";
+        content: '';
         width: 1px;
         height: 17px;
         position: absolute;
@@ -198,7 +198,7 @@ header {
     }
     h1 {
       // margin-left: 3rem;
-      font-family: "Fugaz One", cursive;
+      font-family: 'Fugaz One', cursive;
       text-transform: uppercase;
       color: rgb(41, 40, 40);
       font-size: 2.3rem;
@@ -392,7 +392,7 @@ header {
   h1 {
     color: $main-red;
     color: #161515;
-    font-family: "Fugaz One", cursive;
+    font-family: 'Fugaz One', cursive;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
@@ -447,7 +447,7 @@ header {
     @media screen and (min-width: 1565px) {
       width: 1565px;
     }
-    img{
+    img {
       width: 10px;
     }
 
@@ -467,6 +467,31 @@ header {
       opacity: 1;
       background-color: $main-red;
     }
+
+    // .galaxy {
+    //   background: linear-gradient(
+    //       rgba(31, 28, 28, 0.329),
+    //       rgba(14, 14, 13, 0.89)
+    //     ),
+    //     url('https://gizchina.it/wp-content/uploads/2021/01/Samsung-galaxy-s21-0.jpg');
+    // }
+
+    // .apple {
+    //   background: linear-gradient(
+    //       rgba(31, 28, 28, 0.329),
+    //       rgba(14, 14, 13, 0.89)
+    //     ),
+    //     url('https://i2.wp.com/ihelpbr.com/wp-content/uploads/2020/12/iPhone-12-e-12-Pro.png?resize=1920%2C1080&ssl=1')
+    //       left 200px;
+    // }
+
+    // .motorola {
+    //   background-image: linear-gradient(
+    //       rgba(31, 28, 28, 0.329),
+    //       rgba(14, 14, 13, 0.89)
+    //     ),
+    //     url('https://tecnoblog.net/wp-content/uploads/2020/03/motorola-edge-plus-evleaks.jpg');
+    // }
 
     .slider-card {
       display: flex;
@@ -578,7 +603,7 @@ header {
   justify-content: center;
   margin-top: 6rem;
   h1 {
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     text-transform: uppercase;
     color: rgb(54, 53, 53);
     letter-spacing: 2px;
@@ -812,7 +837,7 @@ header {
       }
 
       h1 {
-        font-family: "Fjalla One", sans-serif;
+        font-family: 'Fjalla One', sans-serif;
         text-transform: uppercase;
         text-align: center;
         color: #242525;
@@ -827,7 +852,7 @@ header {
         align-items: center;
         border-bottom: dashed 1px #8b8f8f;
         span {
-          font-family: "Fjalla One", sans-serif;
+          font-family: 'Fjalla One', sans-serif;
           font-size: 2.2rem;
           color: $main-red;
           letter-spacing: 1px;
@@ -908,7 +933,7 @@ header {
     display: flex;
     padding: 6px;
     text-transform: uppercase;
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     letter-spacing: 2px;
     color: #353333;
     @include mobile {
@@ -930,7 +955,7 @@ header {
     padding: 3rem;
   }
   h1 {
-    font-family: "Fjalla One", sans-serif;
+    font-family: 'Fjalla One', sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: rgb(26, 24, 24);
@@ -1088,7 +1113,7 @@ header {
 }
 
 /*------Footer-------*/
-.footer-container{
+.footer-container {
   width: 100%;
   background: #eee7e7;
   padding: 0 10%;
@@ -1209,7 +1234,7 @@ footer {
   height: 250px;
   position: absolute;
   border-radius: 4px;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   top: 50%;
   outline: none;

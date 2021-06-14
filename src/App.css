@@ -22,7 +22,7 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 select,
@@ -100,7 +100,7 @@ a {
 }
 
 .sub-header ul li:after {
-  content: "";
+  content: '';
   width: 1px;
   height: 17px;
   position: absolute;
@@ -265,7 +265,7 @@ header .navbar {
 }
 
 header .navbar h1 {
-  font-family: "Fugaz One", cursive;
+  font-family: 'Fugaz One', cursive;
   text-transform: uppercase;
   color: #292828;
   font-size: 2.3rem;
@@ -506,7 +506,7 @@ header .menu-icon {
 .loader h1 {
   color: #f1324c;
   color: #161515;
-  font-family: "Fugaz One", cursive;
+  font-family: 'Fugaz One', cursive;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -756,7 +756,7 @@ header .menu-icon {
 }
 
 .products-header h1 {
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   color: #363535;
   letter-spacing: 2px;
@@ -1139,7 +1139,7 @@ header .menu-icon {
 }
 
 .details-container .product-details .info h1 {
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   text-align: center;
   color: #242525;
@@ -1167,7 +1167,7 @@ header .menu-icon {
 }
 
 .details-container .product-details .info .preco span {
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 2.2rem;
   color: #f1324c;
   letter-spacing: 1px;
@@ -1293,7 +1293,7 @@ header .menu-icon {
   display: flex;
   padding: 6px;
   text-transform: uppercase;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   letter-spacing: 2px;
   color: #353333;
 }
@@ -1327,7 +1327,7 @@ header .menu-icon {
 }
 
 .empty-cart h1 {
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #1a1818;
@@ -1754,7 +1754,7 @@ footer .copyright {
   height: 250px;
   position: absolute;
   border-radius: 4px;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   text-transform: uppercase;
   top: 50%;
   outline: none;
