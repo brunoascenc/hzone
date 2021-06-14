@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import Modal from "react-modal";
-import { VscClose } from "react-icons/vsc";
-import "../../App.css";
-import StripeCheckout from "react-stripe-checkout";
-import { Link } from "react-router-dom";
-import { clearCart } from "../../redux/cart/cart-actions";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import Modal from 'react-modal';
+import { VscClose } from 'react-icons/vsc';
+import '../../App.css';
+import StripeCheckout from 'react-stripe-checkout';
+import { Link } from 'react-router-dom';
+import { clearCart } from '../../redux/cart/cart-actions';
 
 const Checkout = ({ total, clearCart }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
