@@ -996,6 +996,7 @@ header .menu-icon {
       align-self: flex-start;
   width: 200px;
   background: #f1324c;
+  border-radius: 4px;
   color: white;
   border: none;
 }

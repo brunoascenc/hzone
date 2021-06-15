@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../../data/DataProvider";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { addItem } from "../../redux/cart/cart-actions";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import React, { useContext, useState } from 'react';
+import { DataContext } from '../../data/DataProvider';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addItem } from '../../redux/cart/cart-actions';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Details = (props) => {
   const value = useContext(DataContext);
@@ -46,7 +46,7 @@ const Details = (props) => {
           <div className="preco">
             <p>à vista no cartão</p>
             <span>
-              R$ {productDetail.preco.toFixed(2).toString().replace(".", ",")}
+              R$ {productDetail.preco.toFixed(2).toString().replace('.', ',')}
             </span>
             <p>vendido e entregue por hzone.com</p>
           </div>
@@ -82,10 +82,6 @@ const Details = (props) => {
             <tr>
               <td>Chip:</td>
               <td>{productDetail.chip}</td>
-            </tr>
-            <tr>
-              <td>Quantidades Chip: </td>
-              <td>{productDetail.qtd_chip}</td>
             </tr>
             <tr>
               <td>Memória:</td>

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useFilteredProds = (apiData) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filteredProds, setFilteredProds] = useState(apiData);
   const [searchMarca, setSearchMarca] = useState([]);
 
