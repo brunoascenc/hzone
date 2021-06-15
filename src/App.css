@@ -1880,13 +1880,37 @@ footer .copyright {
           flex-direction: column;
 }
 
+@media (max-width: 767px) {
+  .sign-in {
+    width: 80%;
+  }
+}
+
+@media (max-width: 575px) {
+  .sign-in {
+    width: 90%;
+  }
+}
+
 .sign-in h2 {
   color: #141414;
+}
+
+@media (max-width: 375px) {
+  .sign-in h2 {
+    font-size: 21px;
+  }
 }
 
 .sign-in span {
   color: #918383;
   margin-top: 5px;
+}
+
+@media (max-width: 375px) {
+  .sign-in span {
+    font-size: 13px;
+  }
 }
 
 .sign-in .buttons {
@@ -1896,6 +1920,18 @@ footer .copyright {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (max-width: 575px) {
+  .sign-in .buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .sign-in .buttons button {
@@ -1914,9 +1950,31 @@ footer .copyright {
   color: #f8f2f2;
 }
 
+@media (max-width: 575px) {
+  .sign-in .buttons button {
+    width: 70%;
+    margin-bottom: 10px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 375px) {
+  .sign-in .buttons button {
+    font-size: 11px;
+  }
+}
+
 .sign-in .buttons .google-btn {
   background-color: #4285f4;
   width: 190px;
+}
+
+@media (max-width: 575px) {
+  .sign-in .buttons .google-btn {
+    width: 70%;
+    margin-bottom: 10px;
+    padding: 16px;
+  }
 }
 
 .sign-up {
@@ -1928,6 +1986,28 @@ footer .copyright {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 380px;
+}
+
+@media (max-width: 960px) {
+  .sign-up {
+    padding-left: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .sign-up {
+    width: 80%;
+    padding-left: 0;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: solid 1px #ebe0e0;
+  }
+}
+
+@media (max-width: 575px) {
+  .sign-up {
+    width: 90%;
+  }
 }
 
 .sign-up .modal {
@@ -1942,9 +2022,21 @@ footer .copyright {
   color: #141414;
 }
 
+@media (max-width: 375px) {
+  .sign-up h2 {
+    font-size: 21px;
+  }
+}
+
 .sign-up span {
   color: #918383;
   margin-top: 5px;
+}
+
+@media (max-width: 375px) {
+  .sign-up span {
+    font-size: 13px;
+  }
 }
 
 .sign-up button {
@@ -1963,6 +2055,12 @@ footer .copyright {
   color: #f8f2f2;
 }
 
+@media (max-width: 375px) {
+  .sign-up button {
+    font-size: 11px;
+  }
+}
+
 .sign-in-and-sign-up {
   width: 850px;
   display: -webkit-box;
@@ -1973,6 +2071,24 @@ footer .copyright {
           justify-content: space-between;
   margin: 30px auto;
   margin-top: 125px;
+}
+
+@media (max-width: 960px) {
+  .sign-in-and-sign-up {
+    width: 85%;
+  }
+}
+
+@media (max-width: 767px) {
+  .sign-in-and-sign-up {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 
 .product-page {

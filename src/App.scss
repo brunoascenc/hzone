@@ -1371,17 +1371,35 @@ $main-color: black;
   display: flex;
   flex-direction: column;
 
+  @include tablet {
+    width: 80%;
+  }
+
+  @include mobile {
+    width: 90%;
+  }
+
   h2 {
     color: rgb(20, 20, 20);
+    @include xs-mobile {
+      font-size: 21px;
+    }
   }
   span {
     color: rgb(145, 131, 131);
     margin-top: 5px;
+    @include xs-mobile {
+      font-size: 13px;
+    }
   }
 
   .buttons {
     display: flex;
     justify-content: space-between;
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
     button {
       @include btnReset();
       background-color: $main-red;
@@ -1392,11 +1410,25 @@ $main-color: black;
       letter-spacing: 1px;
       font-weight: bold;
       color: rgb(248, 242, 242);
+      @include mobile {
+        width: 70%;
+        margin-bottom: 10px;
+        padding: 16px;
+      }
+
+      @include xs-mobile {
+        font-size: 11px;
+      }
     }
 
     .google-btn {
       background-color: #4285f4;
       width: 190px;
+      @include mobile {
+        width: 70%;
+        margin-bottom: 10px;
+        padding: 16px;
+      }
     }
   }
 }
@@ -1406,6 +1438,21 @@ $main-color: black;
   display: flex;
   flex-direction: column;
   width: 380px;
+  @include xs-desktop {
+    padding-left: 50px;
+  }
+
+  @include tablet {
+    width: 80%;
+    padding-left: 0;
+    margin-top: 50px;
+    padding-top: 35px;
+    border-top: solid 1px rgb(235, 224, 224);
+  }
+
+  @include mobile {
+    width: 90%;
+  }
 
   .modal {
     width: 200px;
@@ -1417,10 +1464,16 @@ $main-color: black;
 
   h2 {
     color: rgb(20, 20, 20);
+    @include xs-mobile {
+      font-size: 21px;
+    }
   }
   span {
     color: rgb(145, 131, 131);
     margin-top: 5px;
+    @include xs-mobile {
+      font-size: 13px;
+    }
   }
 
   button {
@@ -1433,6 +1486,9 @@ $main-color: black;
     letter-spacing: 1px;
     font-weight: bold;
     color: rgb(248, 242, 242);
+    @include xs-mobile {
+      font-size: 11px;
+    }
   }
 }
 
@@ -1442,6 +1498,15 @@ $main-color: black;
   justify-content: space-between;
   margin: 30px auto;
   margin-top: 125px;
+  @include xs-desktop {
+    width: 85%;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+  }
 }
 
 //pages header margin
