@@ -111,7 +111,6 @@ a {
 }
 
 header {
-  // position: fixed;
   position: sticky;
   top: 0;
   width: 100%;
@@ -166,11 +165,9 @@ header {
   }
 
   .navbar {
-    // width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // margin-top: 0.7rem;
     margin: 0 auto;
     padding-top: 15px;
     width: 90%;
@@ -197,7 +194,6 @@ header {
       width: 95%;
     }
     h1 {
-      // margin-left: 3rem;
       font-family: 'Fugaz One', cursive;
       text-transform: uppercase;
       color: rgb(41, 40, 40);
@@ -226,9 +222,6 @@ header {
       display: flex;
       list-style: none;
       justify-content: space-between;
-      // align-items: center;
-      // background: blue;
-      // width: 40%;
       padding-top: 25px;
       @include xs-desktop {
         justify-content: center;
@@ -240,11 +233,9 @@ header {
         font-size: 1rem;
         text-transform: uppercase;
         color: rgb(83, 82, 82);
-        // border-bottom: solid 3px transparent;
         padding-bottom: 5px;
         transition: 0.3s ease;
 
-        // width: 100%;
         @include xs-desktop {
           color: rgb(228, 217, 217);
           font-size: 1.3rem;
@@ -257,10 +248,6 @@ header {
           }
         }
 
-        // &:hover {
-        //   border-bottom: solid 3px $main-red;
-        // }
-
         span {
           color: rgb(14, 13, 13);
         }
@@ -268,9 +255,6 @@ header {
         .user-link {
           display: flex;
           align-items: center;
-          // p{
-          //   margin-left: 7px;
-          // }
         }
 
         &::last-child {
@@ -289,7 +273,6 @@ header {
 
     .cart {
       position: relative;
-      // margin-right:  0;
       .cart-qtd {
         display: flex;
         justify-content: center;
@@ -318,7 +301,6 @@ header {
   .menu-icon {
     @include xs-desktop {
       display: block;
-      // margin-right: 3rem;
       font-size: 1.8rem;
       margin-top: 17px;
       cursor: pointer;
@@ -401,16 +383,11 @@ header {
 /*-------Landing page--------*/
 .landing-page {
   position: relative;
-  // height: 100vh;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
   width: 100%;
   margin-bottom: -2rem;
-  // z-index: 1;
 
   .swiper-wrapper {
     position: relative;
-    // z-index: 1;
     .left-arrow {
       font-size: 50px;
       z-index: 100;
@@ -467,31 +444,6 @@ header {
       opacity: 1;
       background-color: $main-red;
     }
-
-    // .galaxy {
-    //   background: linear-gradient(
-    //       rgba(31, 28, 28, 0.329),
-    //       rgba(14, 14, 13, 0.89)
-    //     ),
-    //     url('https://gizchina.it/wp-content/uploads/2021/01/Samsung-galaxy-s21-0.jpg');
-    // }
-
-    // .apple {
-    //   background: linear-gradient(
-    //       rgba(31, 28, 28, 0.329),
-    //       rgba(14, 14, 13, 0.89)
-    //     ),
-    //     url('https://i2.wp.com/ihelpbr.com/wp-content/uploads/2020/12/iPhone-12-e-12-Pro.png?resize=1920%2C1080&ssl=1')
-    //       left 200px;
-    // }
-
-    // .motorola {
-    //   background-image: linear-gradient(
-    //       rgba(31, 28, 28, 0.329),
-    //       rgba(14, 14, 13, 0.89)
-    //     ),
-    //     url('https://tecnoblog.net/wp-content/uploads/2020/03/motorola-edge-plus-evleaks.jpg');
-    // }
 
     .slider-card {
       display: flex;
@@ -951,7 +903,6 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  // height: 50vh;
   @include mobile {
     padding: 3rem;
   }
@@ -1311,17 +1262,6 @@ $main-color: black;
   margin: 45px 0;
 
   .form-input {
-    // background: none;
-    // background-color: white;
-    // // color: $sub-color;
-    // font-size: 18px;
-    // padding: 10px 10px 10px 5px;
-    // display: block;
-    // width: 100%;
-    // border: none;
-    // border-radius: 0;
-    // // border-bottom: 1px solid $sub-color;
-    // margin: 25px 0;
     padding: 8px;
     height: 45px;
     border: none;
@@ -1335,33 +1275,6 @@ $main-color: black;
       border: 2px solid $main-red;
       background-color: rgb(253, 251, 251);
     }
-
-    //   &:focus {
-    //     outline: none;
-    //   }
-
-    //   &:focus ~ .form-input-label {
-    //     @include shrinkLabel();
-    //   }
-    // }
-
-    // input[type="password"] {
-    //   letter-spacing: 0.3em;
-    // }
-
-    // .form-input-label {
-    //   color: $sub-color;
-    //   font-size: 16px;
-    //   font-weight: normal;
-    //   position: absolute;
-    //   pointer-events: none;
-    //   left: 5px;
-    //   top: 10px;
-    //   transition: 300ms ease all;
-
-    //   &.shrink {
-    //     @include shrinkLabel();
-    //   }
   }
 }
 
@@ -1504,7 +1417,6 @@ $main-color: black;
 
   @include tablet {
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
   }
 }
