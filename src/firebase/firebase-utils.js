@@ -14,6 +14,7 @@ const config = {
 
 firebase.initializeApp(config);
 
+//snapshot from user
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
 
@@ -39,7 +40,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
-//To add data on firebase
+//push data to firebase
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
@@ -55,6 +56,7 @@ export const addCollectionAndDocuments = async (
   return await batch.commit();
 };
 
+//convert snapshot to usable data
 export const convertProductsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
     const data = doc.data();
@@ -65,6 +67,7 @@ export const convertProductsSnapshotToMap = (collections) => {
   return transformedCollection;
 };
 
+//current user
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
