@@ -28,8 +28,8 @@ const Slider = () => {
           className="slider-card galaxy"
           style={{
             background: `linear-gradient(rgba(31, 28, 28, 0.329),rgba(14, 14, 13, 0.89)), url(
-              "https://gizchina.it/wp-content/uploads/2021/01/Samsung-galaxy-s21-0.jpg"
-            )100% center no-repeat`,
+              "https://slickdeals.net/blog/wp-content/uploads/2021/01/Hero-Samsung-Galaxy-s21-copy.jpg"
+            )top no-repeat`,
           }}
         >
           <div className="container">
@@ -43,7 +43,7 @@ const Slider = () => {
           className="slider-card apple"
           style={{
             background: `linear-gradient(rgba(31, 28, 28, 0.329),rgba(14, 14, 13, 0.89)), url(
-              "https://i2.wp.com/ihelpbr.com/wp-content/uploads/2020/12/iPhone-12-e-12-Pro.png?resize=1920%2C1080&ssl=1"
+              "https://scr.wfcdn.de/23482/Apple-iPhone-12-Purple-1618938950-0-0.jpg"
             ) center no-repeat`,
           }}
         >
