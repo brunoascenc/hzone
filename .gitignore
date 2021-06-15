@@ -27,4 +27,4 @@ yarn-error.log*
 .netlify
 
 # not usable files
-/data/useData.js
+/src/data/useData.js
