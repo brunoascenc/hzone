@@ -39,9 +39,13 @@ Utilizei o stripe para o checkout dos itens do carrinho.
 ## Tecnologias usadas
 
 [ReactJS](https://pt-br.reactjs.org/)
+
 [Firebase](https://firebase.google.com/?gclid=CjwKCAjwwqaGBhBKEiwAMk-FtK2md4eBZaKVK-0wA0SZGCtR9JHtglOYCfMurF59mAzYr4n5Q9ML2xoCLhIQAvD_BwE&gclsrc=aw.ds)
+
 [SCSS](https://sass-lang.com/)
+
 [SwiperJS](https://swiperjs.com/react)
+
 [Stripe](https://stripe.com/br)
 
 ## Objetivo
