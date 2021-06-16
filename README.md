@@ -2,6 +2,8 @@
 
 Um e-commerce de smartphones com autenticação de usuário, inputs de pesquisa e shopping cart. O projeto foi feito com ReactJS, Redux, Redux-Saga, ContextAPI, SCSS, Firebase e Stripe.
 
+[HZONE](https://hzonecommerce.netlify.app/)
+
 ## Instalação e configuração.
 
 Faça um clone desse repositório. Tenha instalado `npm` e `node` na sua máquina.
