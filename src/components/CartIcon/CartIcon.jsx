@@ -1,7 +1,7 @@
-import React from "react";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { IconContext } from "react-icons";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { IconContext } from 'react-icons';
+import { Link } from 'react-router-dom';
 
 const CartIcon = ({ closeMobileMenu, cartItem }) => {
   return (
@@ -9,7 +9,7 @@ const CartIcon = ({ closeMobileMenu, cartItem }) => {
       <Link to="/cart" onClick={closeMobileMenu}>
         <IconContext.Provider
           value={{
-            style: { fontSize: "35px" },
+            style: { fontSize: '35px' },
           }}
         >
           <li className="carticon">

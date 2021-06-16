@@ -1,24 +1,24 @@
-import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import Checkout from "../../components/Checkout/Checkout";
-import { AiOutlineClose } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import Checkout from '../../components/Checkout/Checkout';
+import { AiOutlineClose } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import {
   selectCartItems,
   selectCartItemsCount,
   selectCartTotal,
-} from "../../redux/cart/cart-selector";
+} from '../../redux/cart/cart-selector';
 import {
   clearItemFromCart,
   decrementItem,
   incrementItem,
-} from "../../redux/cart/cart-actions";
-import { useSelector } from "react-redux";
+} from '../../redux/cart/cart-actions';
+import { useSelector } from 'react-redux';
 
 const Cart = ({ totalPrice, clearItem, decrementItem, incrementItem }) => {
   const cartItem = useSelector((state) => state.cart.cartItems);
-  const fixedTotalPrice = totalPrice.toFixed(2).toString().replace(".", ",");
+  const fixedTotalPrice = totalPrice.toFixed(2).toString().replace('.', ',');
 
   return (
     <div className="cart-container">
@@ -44,7 +44,7 @@ const Cart = ({ totalPrice, clearItem, decrementItem, incrementItem }) => {
                 <div className="preco-cart">
                   <h3>Preço</h3>
                   <span>
-                    R$ {product.preco.toFixed(2).toString().replace(".", ",")}
+                    R$ {product.preco.toFixed(2).toString().replace('.', ',')}
                   </span>
                 </div>
 
@@ -67,7 +67,7 @@ const Cart = ({ totalPrice, clearItem, decrementItem, incrementItem }) => {
       </div>
 
       {cartItem.length === 0 ? (
-        ""
+        ''
       ) : (
         <div className="total-price">
           <h3>Total: R$: {fixedTotalPrice}</h3>

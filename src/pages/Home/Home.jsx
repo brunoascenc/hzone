@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../data/DataProvider";
-import "../../App.css";
-import LandingPage from "../../components/LandingPage/LandingPage";
-import useFilteredProds from "../../custom-hooks/useFilteredProds";
-import { Link } from "react-router-dom";
-import SearchError from "../../components/SearchError/SearchError";
-
+import React, { useContext } from 'react';
+import { DataContext } from '../../data/DataProvider';
+import '../../App.css';
+import LandingPage from '../../components/LandingPage/LandingPage';
+import useFilteredProds from '../../custom-hooks/useFilteredProds';
+import { Link } from 'react-router-dom';
+import SearchError from '../../components/SearchError/SearchError';
 
 const Home = () => {
   const value = useContext(DataContext);
@@ -28,7 +27,7 @@ const Home = () => {
           <div className="marcas">
             <p>Marcas: </p>
             <select
-              defaultValue={"DEFAULT"}
+              defaultValue={'DEFAULT'}
               onChange={(e) => setSearchMarca(e.target.value)}
             >
               <option value="DEFAULT" disabled>
@@ -42,7 +41,9 @@ const Home = () => {
           </div>
         </div>
         <div className="card-container">
-          {filteredProds.length === 0 ? <SearchError/> :
+          {filteredProds.length === 0 ? (
+            <SearchError />
+          ) : (
             filteredProds.map((product) => {
               return (
                 <div key={product.id} className="card">
@@ -53,13 +54,14 @@ const Home = () => {
                     </div>
                   </Link>
                   <span className="preco">
-                    R$: {product.preco.toFixed(2).toString().replace(".", ",")}{" "}
+                    R$: {product.preco.toFixed(2).toString().replace('.', ',')}{' '}
                     à vista
                   </span>
                   <span className="parcela">ou {product.parcela}</span>
                 </div>
               );
-            })}
+            })
+          )}
         </div>
       </div>
     </div>

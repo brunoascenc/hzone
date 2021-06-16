@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import { IconContext } from "react-icons";
-import { VscMenu, VscClose } from "react-icons/vsc";
-import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "react-router-dom";
-import Dropdown from "../Dropdown/Dropdown";
-import CartIcon from "../CartIcon/CartIcon";
-// import { FiLogIn } from "react-icons/fi";
+import React, { useState } from 'react';
+import { IconContext } from 'react-icons';
+import { VscMenu, VscClose } from 'react-icons/vsc';
+import { IoIosArrowDown } from 'react-icons/io';
+import { Link } from 'react-router-dom';
+import Dropdown from '../Dropdown/Dropdown';
+import CartIcon from '../CartIcon/CartIcon';
 
 const Nav = ({ cartItem, signOutStart, currentUser }) => {
   const [click, setClick] = useState(false);
@@ -37,7 +36,7 @@ const Nav = ({ cartItem, signOutStart, currentUser }) => {
       <div className="menu-icon" onClick={handleClick}>
         {click ? <VscClose /> : <VscMenu />}
       </div>
-      <ul className={click ? "nav-menu active" : "nav-menu"}>
+      <ul className={click ? 'nav-menu active' : 'nav-menu'}>
         <h1 className="hidden-link">hzone</h1>
         <Link to="/" onClick={closeMobileMenu}>
           <li className="nav-link">Home</li>
@@ -64,9 +63,9 @@ const Nav = ({ cartItem, signOutStart, currentUser }) => {
             <IconContext.Provider
               value={{
                 style: {
-                  marginLeft: "5px",
-                  marginTop: "2px",
-                  color: "rgb(83, 82, 82)",
+                  marginLeft: '5px',
+                  marginTop: '2px',
+                  color: 'rgb(83, 82, 82)',
                 },
               }}
             >
@@ -81,9 +80,7 @@ const Nav = ({ cartItem, signOutStart, currentUser }) => {
         {currentUser ? (
           <Link to="/" onClick={signOutStart}>
             <li className="nav-link">
-              <span>
-              Olá, {currentUser.displayName.substr(0,currentUser.displayName.indexOf(" "))}
-              </span>
+              <span>Olá, {currentUser.displayName.split(' ')[0]}</span>
               <br />
               Sair
             </li>

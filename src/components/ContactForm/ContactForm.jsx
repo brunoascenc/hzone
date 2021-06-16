@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
-import "../../App.css";
-import FormErrors from "./FormErrors";
-import Modal from "react-modal";
-import { VscClose } from "react-icons/vsc";
+import React, { useState } from 'react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+import '../../App.css';
+import FormErrors from './FormErrors';
+import Modal from 'react-modal';
+import { VscClose } from 'react-icons/vsc';
 
 //Yup validation
 const validationSchema = Yup.object().shape({
   name: Yup.string()
-    .min(3, "Nome muito pequeno")
-    .max(100, "Maximo de 100 characteres")
-    .required("Escreva um nome"),
+    .min(3, 'Nome muito pequeno')
+    .max(100, 'Maximo de 100 characteres')
+    .required('Escreva um nome'),
   email: Yup.string()
-    .email("Escreva um email válido")
-    .max(100, "Maximo de 100 characteres")
-    .required("Escreva um email"),
+    .email('Escreva um email válido')
+    .max(100, 'Maximo de 100 characteres')
+    .required('Escreva um email'),
   message: Yup.string()
-    .min(30, "Minimo de 30 characters")
-    .required("Escreva uma mensagem"),
+    .min(30, 'Minimo de 30 characters')
+    .required('Escreva uma mensagem'),
 });
 
 export default function Form() {
@@ -33,7 +33,7 @@ export default function Form() {
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", message: "" }}
+      initialValues={{ name: '', email: '', message: '' }}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
@@ -77,7 +77,7 @@ export default function Form() {
               type="text"
               name="name"
               placeholder="Seu nome..."
-              className={touched.name && errors.name ? "has-error" : null}
+              className={touched.name && errors.name ? 'has-error' : null}
             />
             <FormErrors touched={touched.name} message={errors.name} />
           </div>
@@ -89,7 +89,7 @@ export default function Form() {
               type="text"
               name="email"
               placeholder="Seu email..."
-              className={touched.email && errors.email ? "has-error" : null}
+              className={touched.email && errors.email ? 'has-error' : null}
             />
             <FormErrors touched={touched.email} message={errors.email} />
           </div>
@@ -103,7 +103,7 @@ export default function Form() {
               rows="10"
               cols="33"
               placeholder="Escreva uma mensagem"
-              className={touched.email && errors.email ? "has-error" : null}
+              className={touched.email && errors.email ? 'has-error' : null}
             ></textarea>
             <FormErrors touched={touched.message} message={errors.message} />
           </div>

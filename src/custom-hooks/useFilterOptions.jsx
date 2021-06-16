@@ -1,5 +1,5 @@
-import React from "react";
-import useFilteredProds from "./useFilteredProds";
+import React from 'react';
+import useFilteredProds from './useFilteredProds';
 
 const FilterOptions = () => {
   const [setSearch, setSearchMarca] = useFilteredProds();

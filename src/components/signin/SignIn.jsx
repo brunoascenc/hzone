@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import "../../App.scss";
-import { connect } from "react-redux";
-import FormInput from "../Form-Input/Form-Input";
+import React, { useState } from 'react';
+import '../../App.scss';
+import { connect } from 'react-redux';
+import FormInput from '../Form-Input/Form-Input';
 import {
   googleSignInStart,
   emailSignInStart,
-} from "../../redux/user/user-actions";
+} from '../../redux/user/user-actions';
 
 const SignIn = ({ emailSignInStart, googleSignInStart, signInFailure }) => {
   const [userCredentials, setCredentials] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const { email, password } = userCredentials;

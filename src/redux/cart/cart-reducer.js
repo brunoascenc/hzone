@@ -1,9 +1,9 @@
-import CartActionTypes from "./cart-types";
+import CartActionTypes from './cart-types';
 import {
   addItemToCart,
   incrementQuantity,
   decrementQuantity,
-} from "./cart-utils";
+} from './cart-utils';
 
 const INITIAL_STATE = {
   cartItems: [],

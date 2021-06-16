@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import "../../App.scss";
-import { connect } from "react-redux";
-import Modal from "react-modal";
-import { VscClose } from "react-icons/vsc";
-import FormInput from "../Form-Input/Form-Input";
-import { signUpStart } from "../../redux/user/user-actions";
+import React, { useState } from 'react';
+import '../../App.scss';
+import { connect } from 'react-redux';
+import Modal from 'react-modal';
+import { VscClose } from 'react-icons/vsc';
+import FormInput from '../Form-Input/Form-Input';
+import { signUpStart } from '../../redux/user/user-actions';
 
 const SignUp = ({ signUpStart }) => {
   const [userCredentials, setUserCredentials] = useState({
-    displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,14 +19,11 @@ const SignUp = ({ signUpStart }) => {
     setIsOpen(true);
   }
 
-
   function closeModal() {
     setIsOpen(false);
   }
 
-
   const { displayName, email, password, confirmPassword } = userCredentials;
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,9 +51,9 @@ const SignUp = ({ signUpStart }) => {
         ariaHideApp={false}
       >
         <div className="modal-content signup-modal">
-        <button onClick={closeModal}>
-              <VscClose />    
-      </button>
+          <button onClick={closeModal}>
+            <VscClose />
+          </button>
           <h1>As senhas devem ser iguais</h1>
         </div>
       </Modal>

@@ -1,5 +1,5 @@
-import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
+import React from 'react';
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const FormErrors = ({ touched, message }) => {
   if (!touched) {

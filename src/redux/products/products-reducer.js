@@ -1,4 +1,4 @@
-import ProductsActionTypes from "./products-types";
+import ProductsActionTypes from './products-types';
 
 const INITIAL_STATE = {
   products: [],

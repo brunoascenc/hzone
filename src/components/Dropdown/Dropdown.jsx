@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../../App.css";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../../App.css';
 
 const Dropdown = () => {
   const [click, setClick] = useState(false);
@@ -10,7 +10,7 @@ const Dropdown = () => {
     <div>
       <ul
         onClick={handleClick}
-        className={click ? "dropdown-menu clicked" : "dropdown-menu"}
+        className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
       >
         <li>
           <Link className="dropdown-link" to="/apple">

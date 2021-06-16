@@ -57,8 +57,8 @@ export const addCollectionAndDocuments = async (
 };
 
 //convert snapshot to usable data
-export const convertProductsSnapshotToMap = (collections) => {
-  const transformedCollection = collections.docs.map((doc) => {
+export const convertProductsSnapshotToMap = (products) => {
+  const transformedCollection = products.docs.map((doc) => {
     const data = doc.data();
 
     return data;

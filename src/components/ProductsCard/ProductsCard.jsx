@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "../../App.css";
-import { DataContext } from "../../data/DataProvider";
-import useFilteredProds from "../../custom-hooks/useFilteredProds";
-import OrderBy from "../../custom-hooks/OrderBy";
-import SearchError from "../SearchError/SearchError";
+import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import '../../App.css';
+import { DataContext } from '../../data/DataProvider';
+import useFilteredProds from '../../custom-hooks/useFilteredProds';
+import OrderBy from '../../custom-hooks/OrderBy';
+import SearchError from '../SearchError/SearchError';
 
 const ProductsCard = () => {
   const value = useContext(DataContext);
@@ -50,7 +50,7 @@ const ProductsCard = () => {
                   </div>
                 </Link>
                 <span className="preco">
-                  R$: {product.preco.toFixed(2).toString().replace(".", ",")} à
+                  R$: {product.preco.toFixed(2).toString().replace('.', ',')} à
                   vista
                 </span>
                 <span className="parcela">ou {product.parcela}</span>

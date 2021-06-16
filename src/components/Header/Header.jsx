@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "../../redux/user/user-selector";
-import "../../App.css";
-import { signOutStart } from "../../redux/user/user-actions";
-import { useSelector } from "react-redux";
-import Nav from "../Nav/Nav";
-import SubHeader from "../SubHeader/SubHeader";
-import { useLocation } from "react-router";
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../redux/user/user-selector';
+import '../../App.css';
+import { signOutStart } from '../../redux/user/user-actions';
+import { useSelector } from 'react-redux';
+import Nav from '../Nav/Nav';
+import SubHeader from '../SubHeader/SubHeader';
+import { useLocation } from 'react-router';
 
 const Header = ({ currentUser, signOutStart }) => {
   const cartItem = useSelector((state) => state.cart.cartItems);
@@ -27,19 +27,19 @@ const Header = ({ currentUser, signOutStart }) => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
   });
 
-  let sticky = ["navbar"];
+  let sticky = ['navbar'];
   if (scrolled) {
-    sticky.push("scrolled");
+    sticky.push('scrolled');
   }
 
   return (
     <div>
-      {pathname === "/" ? <SubHeader /> : ""}
+      {pathname === '/' ? <SubHeader /> : ''}
       <div className="header-wrapper">
-        <header className={sticky.join(" ")}>
+        <header className={sticky.join(' ')}>
           <Nav
             cartItem={cartItem}
             signOutStart={signOutStart}
