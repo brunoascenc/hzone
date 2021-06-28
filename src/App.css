@@ -85,7 +85,7 @@ a {
 
 @media screen and (min-width: 1395px) {
   .sub-header ul {
-    width: 1255px;
+    width: 1260px;
   }
 }
 
@@ -1561,7 +1561,6 @@ header .menu-icon {
 .footer-container {
   width: 100%;
   background: #eee7e7;
-  padding: 0 10%;
 }
 
 footer {
@@ -1577,6 +1576,7 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 85%;
 }
 
 @media screen and (min-width: 1395px) {
